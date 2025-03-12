@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import EventCard from './events/EventCard';
 
@@ -9,7 +10,7 @@ interface Event {
   description: string;
   image: string;
   categories?: string[];
-  date?: string; // Added date as an optional property
+  date?: string;
 }
 
 const techFestEvents: Event[] = [
@@ -155,9 +156,12 @@ const techFestEvents: Event[] = [
   }
 ];
 
-const Events = () => {
-  const [showTechFest, setShowTechFest] = useState(false);
-  
+interface EventsProps {
+  showAllEvents?: boolean;
+  isModalView?: boolean;
+}
+
+const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = false }) => {
   const upcomingEvents: Event[] = [
     {
       id: "techfest-2025",
@@ -170,66 +174,38 @@ const Events = () => {
   ];
 
   return (
-    <section id="events" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-red-950/10 to-black/0 pointer-events-none"></div>
-      
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-2">
-            <span className="text-gradient">Upcoming</span> Events
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Stay updated with our latest events and activities designed to enhance your technical skills and expand your network.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 gap-8">
-          {upcomingEvents.map((event, index) => (
-            <EventCard key={index} {...event} />
-          ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <button 
-            className="button-glow group flex items-center mx-auto px-6 py-3 bg-black/50 border border-white/20 text-white rounded-lg font-medium hover:bg-black/80 transition-all"
-            onClick={() => setShowTechFest(true)}
-          >
-            <span>View TechFest 2025 Details</span>
-            <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
-          </button>
-        </div>
-      </div>
-      
-      {showTechFest && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowTechFest(false)}></div>
-          <div className="glass-card relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl animate-scale-in">
-            <button 
-              className="absolute top-4 right-4 text-white hover:text-red-400 transition-colors"
-              onClick={() => setShowTechFest(false)}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-              </svg>
-            </button>
-            
-            <div className="p-6 md:p-8">
-              <h2 className="text-3xl font-bold mb-2 text-gradient">TechFest 2025</h2>
-              <p className="text-gray-300 mb-4">April 12-13, 2025</p>
-              <p className="text-gray-400 mb-6">
-                EvolveX presents our inaugural TechFest - a two-day celebration of innovation, technology, and creativity. Join us for an exciting lineup of events designed to challenge your skills and expand your horizons.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {techFestEvents.map((event, index) => (
-                  <EventCard key={index} {...event} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="events" className={`${!isModalView ? 'py-20' : ''} relative`}>
+      {!isModalView && (
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-red-950/10 to-black/0 pointer-events-none"></div>
       )}
+      
+      <div className={`${!isModalView ? 'container mx-auto px-4' : ''}`}>
+        {!isModalView && (
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-2">
+              <span className="text-gradient">Upcoming</span> Events
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Stay updated with our latest events and activities designed to enhance your technical skills and expand your network.
+            </p>
+          </div>
+        )}
+        
+        {!showAllEvents ? (
+          <div className="grid grid-cols-1 gap-8">
+            {upcomingEvents.map((event, index) => (
+              <EventCard key={index} {...event} />
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {techFestEvents.map((event, index) => (
+              <EventCard key={index} {...event} />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 };

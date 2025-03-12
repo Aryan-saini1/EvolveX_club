@@ -13,21 +13,32 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Preload any images if needed
-    const preloadImages = () => {
-      const imagesToPreload = [
-        '/rnsit-logo.png',
-        '/evolve-x-showcase.png',
-        '/rnsit-campus.jpg'
-      ];
-      
-      imagesToPreload.forEach(src => {
-        const img = new Image();
-        img.src = src;
-      });
-    };
+    // Check if this is the first visit during this session
+    const hasVisitedBefore = sessionStorage.getItem('hasVisitedBefore');
     
-    preloadImages();
+    if (hasVisitedBefore) {
+      // Skip loading if already visited
+      setLoading(false);
+    } else {
+      // Set flag for subsequent visits
+      sessionStorage.setItem('hasVisitedBefore', 'true');
+      
+      // Preload any images if needed
+      const preloadImages = () => {
+        const imagesToPreload = [
+          '/rnsit-logo.png',
+          '/evolve-x-showcase.png',
+          '/rnsit-campus.jpg'
+        ];
+        
+        imagesToPreload.forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+      };
+      
+      preloadImages();
+    }
   }, []);
 
   return (
@@ -40,7 +51,7 @@ const Index = () => {
           <Hero />
           <About />
           <Team />
-          <Events />
+          <Events showAllEvents={true} />
           <Contact />
           <Footer />
         </>

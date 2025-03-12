@@ -29,27 +29,27 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     audioElement.volume = 0.3;
     audioElement.play().catch(err => console.log('Audio playback prevented:', err));
 
-    // Lightning effect sequence
+    // Lightning effect sequence - more intense strike
     const triggerLightning = () => {
       setLightningSparks(true);
-      setTimeout(() => setLightningSparks(false), 300);
+      setTimeout(() => setLightningSparks(false), 500);
       setTimeout(() => {
         if (Math.random() > 0.5) {
           setLightningSparks(true);
-          setTimeout(() => setLightningSparks(false), 200);
+          setTimeout(() => setLightningSparks(false), 300);
         }
-      }, 500);
+      }, 800);
     };
     
     // Trigger initial lightning
     triggerLightning();
     
-    // Random lightning flashes
+    // Random lightning flashes - more frequent
     const lightningIntervalId = setInterval(() => {
-      if (Math.random() > 0.7) {
+      if (Math.random() > 0.6) {
         triggerLightning();
       }
-    }, 800);
+    }, 700);
 
     // Cleanup
     return () => {
@@ -61,13 +61,12 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
-      {lightningSparks && <div className="lightning-effect"></div>}
+      {lightningSparks && <div className="thunder-strike"></div>}
       
       <div className="relative mb-8">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-70 animate-pulse"></div>
         <div className="relative z-10">
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 animate-text-flicker font-tech">
-            <span className="text-gradient">EVOLVE</span>
+            <span className="text-red-500">EVOLVE</span>
             <span className="text-white">X</span>
           </h1>
           <div className="text-sm text-white/70 text-center">
