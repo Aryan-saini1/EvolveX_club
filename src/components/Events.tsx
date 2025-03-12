@@ -1,105 +1,158 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import EventCard from './events/EventCard';
 
 interface Event {
   id: string;
   name: string;
   description: string;
   image: string;
-  date?: string;
   categories?: string[];
 }
 
-interface TechFestEvent extends Event {
-  organizers: string[];
-}
-
-const UpcomingEvent = ({ event, onClick }: { event: Event; onClick: () => void }) => {
-  return (
-    <div className="relative group cursor-pointer" onClick={onClick}>
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
-      <div className="glass-card rounded-xl p-1 relative overflow-hidden">
-        <div className="h-48 md:h-56 bg-gray-900/80 rounded-t-lg overflow-hidden">
-          <img 
-            src={event.image} 
-            alt={event.name} 
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            onError={(e) => {
-              e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${event.name.split(' ').join('+')}`;
-            }}
-          />
-        </div>
-        <div className="p-5">
-          {event.categories && (
-            <div className="flex gap-2 mb-3 flex-wrap">
-              {event.categories.map((category, index) => (
-                <span key={index} className="px-2 py-1 text-xs rounded-full bg-red-900/30 text-red-200">
-                  {category}
-                </span>
-              ))}
-            </div>
-          )}
-          <h3 className="font-bold text-xl text-white mb-2">{event.name}</h3>
-          <p className="text-gray-400 line-clamp-2 mb-4">{event.description}</p>
-          {event.date && (
-            <div className="text-red-400 font-medium">{event.date}</div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TechFestDetails = ({ events, onClose }: { events: TechFestEvent[]; onClose: () => void }) => {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="glass-card relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl animate-scale-in">
-        <button 
-          className="absolute top-4 right-4 text-white hover:text-red-400 transition-colors"
-          onClick={onClose}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-        
-        <div className="p-6 md:p-8">
-          <h2 className="text-3xl font-bold mb-2 text-gradient">TechFest 2025</h2>
-          <p className="text-gray-300 mb-4">April 12-13, 2025</p>
-          <p className="text-gray-400 mb-6">
-            EvolveX presents our inaugural TechFest - a two-day celebration of innovation, technology, and creativity. Join us for an exciting lineup of events, workshops, and competitions designed to challenge your skills and expand your horizons.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            {events.map((event, index) => (
-              <div key={index} className="glass-card rounded-xl p-5 hover:bg-gray-800/30 transition-colors">
-                <h3 className="font-bold text-xl text-white mb-2">{event.name}</h3>
-                {event.categories && (
-                  <div className="flex gap-2 mb-3 flex-wrap">
-                    {event.categories.map((category, idx) => (
-                      <span key={idx} className="px-2 py-1 text-xs rounded-full bg-red-900/30 text-red-200">
-                        {category}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <p className="text-gray-400 mb-4">{event.description}</p>
-                <p className="text-sm text-gray-500">Organized by: {event.organizers.join(', ')}</p>
-                <Link 
-                  to={`/events/${event.id}`} 
-                  className="mt-4 inline-block px-4 py-2 bg-red-700/50 hover:bg-red-700/70 text-white rounded transition-colors"
-                >
-                  View Details
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const techFestEvents: Event[] = [
+  {
+    id: "trade-quest",
+    name: "Trade Quest",
+    description: "Test your financial knowledge in this quiz covering stocks, fintech, and investments. Make dummy investments and compete for the highest returns!",
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f",
+    categories: ["Quiz", "Finance"]
+  },
+  {
+    id: "pitching",
+    name: "Pitching",
+    description: "Present your innovative ideas to our panel of judges in this Shark Tank-style competition.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+    categories: ["Presentation", "Innovation"]
+  },
+  {
+    id: "gaming",
+    name: "Gaming Tournament",
+    description: "Compete in various gaming challenges and prove your skills in this exciting tournament.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e",
+    categories: ["Gaming", "Competition"]
+  },
+  {
+    id: "photo-edit",
+    name: "Photography & Editing",
+    description: "Showcase your photography and editing skills. Winners decided by Instagram followers!",
+    image: "https://images.unsplash.com/photo-1552168324-d612d77725e3",
+    categories: ["Creative", "Social Media"]
+  },
+  {
+    id: "crime-scene",
+    name: "Mock Crime Scene Investigation",
+    description: "Put on your detective hat and solve a simulated crime scene filled with technical clues.",
+    image: "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8",
+    categories: ["Investigation", "Problem Solving"]
+  },
+  {
+    id: "typing-contest",
+    name: "Typing Championship",
+    description: "Test your typing speed and accuracy, including a challenging reverse typing round!",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    categories: ["Speed", "Skill"]
+  },
+  {
+    id: "programming-relay",
+    name: "Programming Relay",
+    description: "A unique coding challenge where participants continue each other's code without direct communication.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    categories: ["Coding", "Team Event"]
+  },
+  {
+    id: "bounty-bug",
+    name: "Bounty on Bug",
+    description: "Find security vulnerabilities in given software and compete for the highest bounty.",
+    image: "https://images.unsplash.com/photo-1563207153-f403bf289096",
+    categories: ["Security", "Debug"]
+  },
+  {
+    id: "tech-debate",
+    name: "Tech Debate",
+    description: "Debate on controversial tech topics like AI ethics, OS wars, and digital privacy.",
+    image: "https://images.unsplash.com/photo-1521798552670-3130579c8c86",
+    categories: ["Debate", "Discussion"]
+  },
+  {
+    id: "capture-flag",
+    name: "Capture the Flag",
+    description: "Solve technical puzzles, quizzes, and pictionary challenges to capture the flag!",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+    categories: ["Puzzle", "Challenge"]
+  },
+  {
+    id: "hackathon",
+    name: "Detective's Dilemma Hackathon",
+    description: "A creative hackathon with a detective theme - build solutions for crime-solving scenarios.",
+    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0",
+    categories: ["Hackathon", "Creative"]
+  },
+  {
+    id: "tech-memes",
+    name: "Tech Meme Contest",
+    description: "Create spontaneous, funny, and creative memes about technology.",
+    image: "https://images.unsplash.com/photo-1517242027094-631f8c218a0f",
+    categories: ["Creative", "Humor"]
+  },
+  {
+    id: "treasure-hunt",
+    name: "Tech Treasure Hunt",
+    description: "Follow the technical clues, decode maps, and find the hidden treasure!",
+    image: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec",
+    categories: ["Adventure", "Problem Solving"]
+  },
+  {
+    id: "squid-game",
+    name: "Tech Squid Game",
+    description: "Survive through multiple rounds of technical challenges inspired by the popular series.",
+    image: "https://images.unsplash.com/photo-1635716897849-295987622bd9",
+    categories: ["Challenge", "Elimination"]
+  },
+  {
+    id: "mad-ads",
+    name: "Mad Ads",
+    description: "Create posters, collages, and creative advertisements for tech products.",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    categories: ["Creative", "Design"]
+  },
+  {
+    id: "elocution",
+    name: "Tech Talk Elocution",
+    description: "Speak on pre-assigned technical topics with confidence and clarity.",
+    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2",
+    categories: ["Speaking", "Presentation"]
+  },
+  {
+    id: "art-competition",
+    name: "TechArt",
+    description: "Express technology through art - drawing, painting, and digital creations.",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+    categories: ["Art", "Creative"]
+  },
+  {
+    id: "tech-trivia",
+    name: "Tech Series Trivia",
+    description: "Test your knowledge about popular tech-related TV shows and web series.",
+    image: "https://images.unsplash.com/photo-1579532536935-619928decd08",
+    categories: ["Quiz", "Entertainment"]
+  },
+  {
+    id: "crossfit",
+    name: "TechFit Challenge",
+    description: "A CrossFit competition for the tech enthusiasts who love fitness.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
+    categories: ["Fitness", "Challenge"]
+  },
+  {
+    id: "cup-pyramid",
+    name: "Cup Pyramid Challenge",
+    description: "Test your steady hands and strategy in building the perfect cup pyramid.",
+    image: "https://images.unsplash.com/photo-1573676028748-220070e59d61",
+    categories: ["Skill", "Strategy"]
+  }
+];
 
 const Events = () => {
   const [showTechFest, setShowTechFest] = useState(false);
@@ -112,60 +165,9 @@ const Events = () => {
       image: "/techfest-banner.jpg",
       date: "April 12-13, 2025",
       categories: ["Festival", "Competition", "Workshops"]
-    },
-    {
-      id: "coding-bootcamp",
-      name: "Coding Bootcamp",
-      description: "An intensive weekend of coding challenges and mentorship from industry experts.",
-      image: "/coding-bootcamp.jpg",
-      date: "May 20, 2025",
-      categories: ["Learning", "Coding"]
-    },
-    {
-      id: "industry-connect",
-      name: "Industry Connect",
-      description: "Connect with leading tech professionals and explore career opportunities in the tech industry.",
-      image: "/industry-connect.jpg",
-      date: "June 5, 2025",
-      categories: ["Networking", "Career"]
     }
   ];
-  
-  const techFestEvents: TechFestEvent[] = [
-    {
-      id: "hackathon",
-      name: "24-Hour Hackathon",
-      description: "Form teams and build innovative solutions to real-world problems in this intense 24-hour challenge.",
-      image: "/hackathon.jpg",
-      categories: ["Competition", "Team Event"],
-      organizers: ["Technical Team", "Industry Partners"]
-    },
-    {
-      id: "coding-competition",
-      name: "CodeWars",
-      description: "Test your coding skills in this competitive programming challenge with multiple rounds and increasing difficulty.",
-      image: "/codewars.jpg",
-      categories: ["Competition", "Individual"],
-      organizers: ["Coding Team"]
-    },
-    {
-      id: "design-sprint",
-      name: "UI/UX Design Sprint",
-      description: "Design innovative user interfaces and experiences in this fast-paced design challenge.",
-      image: "/design-sprint.jpg",
-      categories: ["Competition", "Design"],
-      organizers: ["Creative Team"]
-    },
-    {
-      id: "tech-talks",
-      name: "Tech Talks",
-      description: "Listen to inspiring talks from industry leaders and tech innovators about the future of technology.",
-      image: "/tech-talks.jpg",
-      categories: ["Learning", "Networking"],
-      organizers: ["Events Team"]
-    }
-  ];
-  
+
   return (
     <section id="events" className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-red-950/10 to-black/0 pointer-events-none"></div>
@@ -181,20 +183,9 @@ const Events = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {upcomingEvents.map((event, index) => (
-            <UpcomingEvent 
-              key={index} 
-              event={event}
-              onClick={() => {
-                if (event.id === "techfest-2025") {
-                  setShowTechFest(true);
-                } else {
-                  // Navigate to event page
-                  console.log(`Navigate to ${event.id}`);
-                }
-              }}
-            />
+            <EventCard key={index} {...event} />
           ))}
         </div>
         
@@ -210,10 +201,33 @@ const Events = () => {
       </div>
       
       {showTechFest && (
-        <TechFestDetails 
-          events={techFestEvents}
-          onClose={() => setShowTechFest(false)}
-        />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowTechFest(false)}></div>
+          <div className="glass-card relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl animate-scale-in">
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-red-400 transition-colors"
+              onClick={() => setShowTechFest(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+              </svg>
+            </button>
+            
+            <div className="p-6 md:p-8">
+              <h2 className="text-3xl font-bold mb-2 text-gradient">TechFest 2025</h2>
+              <p className="text-gray-300 mb-4">April 12-13, 2025</p>
+              <p className="text-gray-400 mb-6">
+                EvolveX presents our inaugural TechFest - a two-day celebration of innovation, technology, and creativity. Join us for an exciting lineup of events designed to challenge your skills and expand your horizons.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {techFestEvents.map((event, index) => (
+                  <EventCard key={index} {...event} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </section>
   );
