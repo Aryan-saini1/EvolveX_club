@@ -9,6 +9,7 @@ interface Event {
   description: string;
   image: string;
   categories?: string[];
+  date?: string; // Added date as an optional property
 }
 
 const techFestEvents: Event[] = [
