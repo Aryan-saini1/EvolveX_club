@@ -56,13 +56,13 @@ const Team = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <TeamMember 
               image="/hod-maam.jpg" 
-              name="Dr. G N Srinivasa Prasad" 
+              name="Dr. Kavitha C" 
               role="Head of Department, CSE" 
               isStaff={true}
             />
             <TeamMember 
-              image="/kavitha-maam.jpg" 
-              name="Dr. Kavitha C" 
+              image="/faculty-coordinator.jpg" 
+              name="Dr. Sushmita S" 
               role="Faculty Coordinator" 
               isStaff={true}
             />

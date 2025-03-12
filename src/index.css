@@ -43,6 +43,11 @@
     --sidebar-border: 220 15% 15%;
     --sidebar-ring: 0 80% 45%;
   }
+
+  @font-face {
+    font-family: 'Tech';
+    src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+  }
 }
 
 @layer base {
@@ -57,6 +62,10 @@
 
   html {
     @apply scroll-smooth;
+  }
+
+  .font-tech {
+    font-family: 'Orbitron', sans-serif;
   }
 }
 
@@ -73,7 +82,30 @@
       radial-gradient(circle at 40% 70%, rgba(255, 0, 0, 0.5) 0%, transparent 25%);
     pointer-events: none;
     z-index: 10;
-    animation: lightning 4s ease-in-out;
+    animation: lightning 0.5s ease-in-out;
+  }
+
+  @keyframes lightning {
+    0%, 100% { opacity: 0; }
+    10%, 40% { opacity: 1; }
+    50% { opacity: 0.6; }
+    60%, 90% { opacity: 0.85; }
+  }
+
+  @keyframes text-flicker {
+    0%, 100% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f00, 0 0 80px #f00, 0 0 90px #f00, 0 0 100px #f00, 0 0 150px #f00; }
+    10% { text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f00, 0 0 73px #f00, 0 0 80px #f00, 0 0 94px #f00, 0 0 140px #f00; }
+    20% { text-shadow: none; }
+    30% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f00, 0 0 80px #f00, 0 0 90px #f00, 0 0 100px #f00, 0 0 150px #f00; }
+    40% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f00, 0 0 80px #f00, 0 0 90px #f00, 0 0 100px #f00, 0 0 150px #f00; }
+    50% { text-shadow: 0 0 3px #fff, 0 0 7px #fff, 0 0 13px #fff, 0 0 25px #f00, 0 0 50px #f00, 0 0 60px #f00, 0 0 70px #f00, 0 0 90px #f00; }
+    70% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f00, 0 0 80px #f00, 0 0 90px #f00, 0 0 100px #f00, 0 0 150px #f00; }
+    80% { text-shadow: none; }
+    90% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f00, 0 0 80px #f00, 0 0 90px #f00, 0 0 100px #f00, 0 0 150px #f00; }
+  }
+
+  .animate-text-flicker {
+    animation: text-flicker 3s linear infinite;
   }
 
   .glass-card {

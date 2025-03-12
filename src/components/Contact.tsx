@@ -3,6 +3,22 @@ import React from 'react';
 import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const recipient = "aryan.saini3001@gmail.com";
+    const subject = formData.get('subject') as string;
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+    
+    // Create mailto link
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    
+    // Open in new window/tab
+    window.open(mailtoLink, '_blank');
+  };
+
   return (
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -23,13 +39,15 @@ const Contact = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-30"></div>
               <div className="glass-card rounded-xl p-6 relative">
                 <h3 className="text-2xl font-semibold mb-6 text-white">Send us a message</h3>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
                       <input 
                         type="text" 
                         id="name" 
+                        name="name"
+                        required
                         className="w-full bg-gray-800/80 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                         placeholder="Your name"
                       />
@@ -39,6 +57,8 @@ const Contact = () => {
                       <input 
                         type="email" 
                         id="email" 
+                        name="email"
+                        required
                         className="w-full bg-gray-800/80 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                         placeholder="Your email"
                       />
@@ -49,6 +69,8 @@ const Contact = () => {
                     <input 
                       type="text" 
                       id="subject" 
+                      name="subject"
+                      required
                       className="w-full bg-gray-800/80 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                       placeholder="Subject"
                     />
@@ -57,6 +79,8 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
                     <textarea 
                       id="message" 
+                      name="message"
+                      required
                       rows={5} 
                       className="w-full bg-gray-800/80 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none"
                       placeholder="Your message"
@@ -100,7 +124,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white">Email</h4>
-                      <p className="text-gray-400">evolvex@rnsit.ac.in</p>
+                      <p className="text-gray-400">aryan.saini3001@gmail.com</p>
                     </div>
                   </div>
                   
