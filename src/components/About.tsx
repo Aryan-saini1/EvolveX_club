@@ -9,7 +9,7 @@ const About = () => {
       
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
+          <div className="md:w-1/3">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
@@ -18,14 +18,14 @@ const About = () => {
                   alt="RNSIT Campus" 
                   className="w-full h-auto rounded-xl"
                   onError={(e) => {
-                    e.currentTarget.src = "https://via.placeholder.com/600x400/111/333?text=RNSIT+Campus";
+                    e.currentTarget.src = "https://via.placeholder.com/400x300/111/333?text=RNSIT+Campus";
                   }}
                 />
               </div>
             </div>
           </div>
           
-          <div className="md:w-1/2">
+          <div className="md:w-2/3">
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
               <span className="text-gradient">About</span> EvolveX
             </h2>

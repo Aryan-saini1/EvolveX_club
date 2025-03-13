@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -13,16 +14,19 @@ interface Event {
   status: 'upcoming' | 'past';
 }
 
-const allEvents: Event[] = [
-  {
-    id: "techfest-2025",
-    name: "TechFest 2025",
-    description: "EvolveX's inaugural two-day technical festival featuring competitions, workshops, and networking opportunities.",
-    image: "/techfest-banner.jpg",
-    date: "April 12-13, 2025",
-    categories: ["Festival", "Competition", "Workshops"],
-    status: 'upcoming'
-  },
+// TechFest 2025 is our main event
+const techFest = {
+  id: "techfest-2025",
+  name: "TechFest 2025",
+  description: "EvolveX's inaugural two-day technical festival featuring competitions, workshops, and networking opportunities.",
+  image: "/techfest-banner.jpg",
+  date: "April 12-13, 2025",
+  categories: ["Festival", "Competition", "Workshops"],
+  status: 'upcoming' as const
+};
+
+// All other events are now part of TechFest 2025
+const techFestEvents: Event[] = [
   {
     id: "trade-quest",
     name: "Trade Quest",
@@ -185,40 +189,14 @@ const allEvents: Event[] = [
   }
 ];
 
-const pastEvents: Event[] = [
-  {
-    id: "techfest-2024",
-    name: "TechFest 2024",
-    description: "The previous edition of our technical festival that set new benchmarks in innovation.",
-    image: "/techfest-2024.jpg",
-    date: "April 15-16, 2024",
-    categories: ["Festival", "Competition"],
-    status: 'past'
-  },
-  {
-    id: "hackathon-2024",
-    name: "Winter Hackathon 2024",
-    description: "A 24-hour coding marathon that brought together the brightest minds.",
-    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0",
-    categories: ["Hackathon", "Coding"],
-    status: 'past'
-  }
-];
-
 interface EventsProps {
   showAllEvents?: boolean;
   isModalView?: boolean;
 }
 
 const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = false }) => {
-  const [filter, setFilter] = useState<'all' | 'upcoming' | 'past'>('upcoming');
+  const [showTechFestEvents, setShowTechFestEvents] = useState(false);
   
-  const filteredEvents = () => {
-    if (filter === 'upcoming') return allEvents.filter(event => event.status === 'upcoming');
-    if (filter === 'past') return pastEvents;
-    return [...allEvents, ...pastEvents];
-  };
-
   return (
     <section id="events" className={`${!isModalView ? 'py-20' : ''} relative`}>
       {!isModalView && (
@@ -227,51 +205,46 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
       
       <div className={`${!isModalView ? 'container mx-auto px-4' : ''}`}>
         {!isModalView && (
-          <>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-2">
-                <span className="text-gradient">Events</span>
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
-              <p className="text-gray-300 max-w-2xl mx-auto">
-                Explore our upcoming and past events designed to enhance your technical skills and expand your network.
-              </p>
-            </div>
-            
-            <div className="flex justify-center gap-4 mb-8">
-              <button
-                onClick={() => setFilter('upcoming')}
-                className={`px-4 py-2 rounded-full transition-colors ${
-                  filter === 'upcoming' ? 'bg-red-600 text-white' : 'bg-red-900/30 text-red-200 hover:bg-red-900/50'
-                }`}
-              >
-                Upcoming Events
-              </button>
-              <button
-                onClick={() => setFilter('past')}
-                className={`px-4 py-2 rounded-full transition-colors ${
-                  filter === 'past' ? 'bg-red-600 text-white' : 'bg-red-900/30 text-red-200 hover:bg-red-900/50'
-                }`}
-              >
-                Past Events
-              </button>
-              <button
-                onClick={() => setFilter('all')}
-                className={`px-4 py-2 rounded-full transition-colors ${
-                  filter === 'all' ? 'bg-red-600 text-white' : 'bg-red-900/30 text-red-200 hover:bg-red-900/50'
-                }`}
-              >
-                All Events
-              </button>
-            </div>
-          </>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-2">
+              <span className="text-gradient">Events</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Join our upcoming TechFest 2025 - featuring exciting competitions and workshops to enhance your technical skills!
+            </p>
+          </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredEvents().map((event, index) => (
-            <EventCard key={index} {...event} />
-          ))}
+        {/* Display TechFest 2025 prominently */}
+        <div className="mb-10">
+          <div className="max-w-4xl mx-auto">
+            <EventCard {...techFest} />
+            
+            {/* Toggle button to show/hide TechFest events */}
+            <div className="mt-4 text-center">
+              <button 
+                onClick={() => setShowTechFestEvents(!showTechFestEvents)}
+                className="flex items-center mx-auto space-x-2 px-6 py-2 bg-red-900/30 text-red-200 rounded-full hover:bg-red-900/50 transition-colors"
+              >
+                <span>{showTechFestEvents ? 'Hide TechFest Events' : 'View TechFest Events'}</span>
+                <ChevronDown className={`h-5 w-5 transition-transform ${showTechFestEvents ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+          </div>
         </div>
+        
+        {/* TechFest Events */}
+        {showTechFestEvents && (
+          <div className="mt-8">
+            <h3 className="text-2xl font-bold text-center mb-6">TechFest 2025 Events</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {techFestEvents.map((event, index) => (
+                <EventCard key={index} {...event} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
