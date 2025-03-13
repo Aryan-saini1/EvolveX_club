@@ -52,7 +52,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Phone</h4>
-                    <p className="text-gray-400">+91 80 2843 5723</p>
+                    <p className="text-gray-400">+91 8107819678</p>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                 <h4 className="font-semibold text-white mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://www.instagram.com/_nahipata._/" 
                     className="w-10 h-10 rounded-full bg-red-900/30 flex items-center justify-center hover:bg-red-700/50 transition-colors"
                     aria-label="Instagram"
                   >

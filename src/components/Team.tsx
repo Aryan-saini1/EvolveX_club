@@ -13,25 +13,27 @@ const TeamMember = ({
   isStaff?: boolean;
 }) => {
   return (
-    <div className={`${isStaff ? 'md:col-span-2' : ''}`}>
+    <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''}`}>
+      <div className={`${isStaff ? 'w-72 md:w-80' : ''}`}>
       <div className="relative group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
         <div className="glass-card rounded-xl p-1 relative">
           <div className="bg-gray-900/80 rounded-lg overflow-hidden">
-            <img 
-              src={image} 
-              alt={name} 
-              className="w-full aspect-square object-cover object-center group-hover:scale-105 transition-transform duration-300 rounded-lg"
-              onError={(e) => {
-                e.currentTarget.src = `https://via.placeholder.com/300x300/111/333?text=${name.split(' ').join('+')}`;
-              }}
-            />
+          <img 
+            src={image} 
+            alt={name} 
+            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300 mx-auto"
+            onError={(e) => {
+              e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
+            }}
+          />
           </div>
           <div className="p-4 text-center">
             <h3 className="font-bold text-xl text-white">{name}</h3>
             <p className="text-red-400">{role}</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
@@ -68,13 +70,13 @@ const Team = () => {
           <h3 className="text-2xl font-semibold mb-8 text-center text-white">Faculty Advisors</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <TeamMember 
-              image="/hod-maam.jpg" 
+              image="kavita.webp" 
               name="Dr. Kavitha C" 
               role="Head of Department, CSE" 
               isStaff={true}
             />
             <TeamMember 
-              image="/faculty-coordinator.jpg" 
+              image="sushmitha-s.webp" 
               name="Dr. Sushmita S" 
               role="Faculty Coordinator" 
               isStaff={true}
@@ -86,18 +88,18 @@ const Team = () => {
           <h3 className={`text-2xl font-semibold mb-8 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              { image: "/student-president.jpg", name: "Rahul Sharma", role: "President" },
-              { image: "/student-vp.jpg", name: "Priya Desai", role: "Vice President" },
-              { image: "/student-tech.jpg", name: "Akash Patel", role: "Technical Lead" },
-              { image: "/student-creative.jpg", name: "Meera Joshi", role: "Creative Director" },
-              { image: "/student-events.jpg", name: "Vikram Singh", role: "Events Coordinator" },
-              { image: "/student-marketing.jpg", name: "Ananya Gupta", role: "Marketing Lead" },
-              { image: "/student-pr.jpg", name: "Raj Kumar", role: "Public Relations" },
-              { image: "/student-content.jpg", name: "Shreya Patil", role: "Content Creator" },
-              { image: "/student-tech2.jpg", name: "Nikhil Verma", role: "Technical Team" },
-              { image: "/student-creative2.jpg", name: "Aditya Kapoor", role: "Creative Team" },
-              { image: "/student-events2.jpg", name: "Kavita Reddy", role: "Events Team" },
-              { image: "/student-marketing2.jpg", name: "Sanjay Mehta", role: "Marketing Team" }
+              { image: "/Aryan.jpeg", name: "Aryan Saini", role: "President" },
+              { image: "/vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
+              { image: "/kushi.jpeg", name: "Kushi S", role: "Core Member" },
+              { image: "/ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
+              { image: "/deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
+              { image: "/anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+              { image: "/student-pr.jpeg", name: "Prajwal G", role: "Core Member" },
+              { image: "/souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
+              { image: "/likitha.jpeg", name: "Likitha M N", role: "Core Member" },
+              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
+              { image: "/harsh.jpeg", name: "Harsh Ringsia", role: "Neighbour" },
+              { image: "/cezzan.jpeg", name: "Cezzan Rangrej", role: "Roommate" }
             ].map((member, index) => (
               <div 
                 key={index} 

@@ -58,7 +58,7 @@ const Hero = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
-                  src="/evolve-x-showcase.png" 
+                  src="/evolve.jpeg" 
                   alt="EvolveX Activities" 
                   className="w-full h-auto rounded-xl"
                   onError={(e) => {

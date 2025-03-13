@@ -14,7 +14,7 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
-                  src="/rnsit-campus.jpg" 
+                  src="/rns-campus.jpeg" 
                   alt="RNSIT Campus" 
                   className="w-full h-auto rounded-xl"
                   onError={(e) => {

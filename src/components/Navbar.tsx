@@ -48,8 +48,8 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/rnsit-logo.png" 
-              alt="RNSIT Logo" 
+              src="/evolve.jpeg" 
+              alt="CLUB Logo" 
               className="h-8 mr-3" 
             />
             <span className="text-xl font-bold text-gradient">EvolveX</span>
