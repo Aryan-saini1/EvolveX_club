@@ -256,7 +256,7 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
             <div className="max-w-4xl mx-auto">
               <EventCard {...techFest} />
               
-              {/* Toggle button to show/hide TechFest events */}
+              {/* Button to show/hide TechFest events list (not dropdown) */}
               <div className="mt-4 text-center">
                 <button 
                   onClick={() => setShowTechFestEvents(!showTechFestEvents)}
@@ -270,7 +270,7 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
           </div>
         )}
         
-        {/* TechFest Events - only show if looking at upcoming or all events */}
+        {/* TechFest Events List - simple list, no dropdown */}
         {showTechFestEvents && (activeFilter === 'upcoming' || activeFilter === 'all') && (
           <div className="mt-8">
             <h3 className="text-2xl font-bold text-center mb-6">TechFest 2025 Events</h3>
