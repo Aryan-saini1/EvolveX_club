@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 interface EventProps {
   id: string;
@@ -17,8 +18,8 @@ const EventCard = ({ id, name, description, image, categories, date, status }: E
   
   return (
     <Link to={`/events/${id}`} className="block">
-      <div className="relative group cursor-pointer">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
+      <div className="relative group cursor-pointer overflow-hidden">
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-75 transition-all duration-300"></div>
         <div className={`glass-card rounded-xl p-1 relative overflow-hidden ${isTechFest ? 'border-2 border-red-500' : ''}`}>
           <div className={`${isTechFest ? 'h-64 md:h-72' : 'h-48 md:h-56'} bg-gray-900/80 rounded-t-lg overflow-hidden relative`}>
             <img 
@@ -37,10 +38,16 @@ const EventCard = ({ id, name, description, image, categories, date, status }: E
               </div>
             )}
             {isTechFest && (
-              <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+              <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse-glow">
                 Main Event
               </div>
             )}
+            
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+              <div className="text-white px-4 py-2 rounded-full text-sm font-semibold bg-red-600/90 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                View Details
+              </div>
+            </div>
           </div>
           <div className="p-5">
             <div className="flex flex-wrap gap-2 mb-3">
@@ -58,8 +65,8 @@ const EventCard = ({ id, name, description, image, categories, date, status }: E
                 {status === 'upcoming' ? 'Upcoming' : 'Past'}
               </span>
             </div>
-            <h3 className={`font-bold ${isTechFest ? 'text-2xl' : 'text-xl'} text-white mb-2`}>{name}</h3>
-            <p className="text-gray-400 line-clamp-2">{description}</p>
+            <h3 className={`font-bold ${isTechFest ? 'text-2xl' : 'text-xl'} text-white mb-2 group-hover:text-gradient transition-all duration-300`}>{name}</h3>
+            <p className="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">{description}</p>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -20,7 +21,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className={`md:w-1/2 text-center md:text-left ${animationComplete ? 'animate-scale-in' : 'opacity-0'}`}>
+          <div className={`md:w-3/5 text-center md:text-left ${animationComplete ? 'animate-scale-in' : 'opacity-0'}`}>
             <div className="inline-block text-xs font-semibold bg-red-900/30 text-red-200 px-3 py-1 rounded-full mb-4">
               RNSIT's Premier Tech Club
             </div>
@@ -35,14 +36,12 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <button 
+              <Link 
+                to="/events/techfest-2025"
                 className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow"
-                onClick={() => {
-                  document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' });
-                }}
               >
-                Upcoming Events
-              </button>
+                TechFest 2025
+              </Link>
               <button 
                 className="button-glow px-6 py-3 bg-black/50 border border-white/20 text-white rounded-lg font-medium hover:bg-black/80 transition-all"
                 onClick={() => {
@@ -54,8 +53,8 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className={`md:w-1/2 ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-            <div className="relative">
+          <div className={`md:w-2/5 ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
+            <div className="relative hover-scale-image">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
