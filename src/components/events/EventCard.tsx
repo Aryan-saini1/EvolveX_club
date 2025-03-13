@@ -11,9 +11,10 @@ interface EventProps {
   categories?: string[];
   date?: string;
   status: 'upcoming' | 'past';
+  showDetails?: boolean;
 }
 
-const EventCard = ({ id, name, description, image, categories, date, status }: EventProps) => {
+const EventCard = ({ id, name, description, image, categories, date, status, showDetails = false }: EventProps) => {
   const isTechFest = id === "techfest-2025";
   
   return (
@@ -67,6 +68,12 @@ const EventCard = ({ id, name, description, image, categories, date, status }: E
             </div>
             <h3 className={`font-bold ${isTechFest ? 'text-2xl' : 'text-xl'} text-white mb-2 group-hover:text-gradient transition-all duration-300`}>{name}</h3>
             <p className="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">{description}</p>
+            
+            {showDetails && (
+              <div className="mt-4 pt-4 border-t border-gray-800">
+                <p className="text-gray-300">Click to see full details</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

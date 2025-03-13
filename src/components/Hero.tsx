@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
           
           <div className={`md:w-2/5 ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-            <div className="relative hover-scale-image">
+            <div className="relative hover-scale-image max-w-xs md:max-w-sm mx-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
