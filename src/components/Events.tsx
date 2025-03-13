@@ -189,6 +189,9 @@ const techFestEvents: Event[] = [
   }
 ];
 
+// Empty array for past events (as requested)
+const pastEvents: Event[] = [];
+
 interface EventsProps {
   showAllEvents?: boolean;
   isModalView?: boolean;
@@ -196,6 +199,7 @@ interface EventsProps {
 
 const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = false }) => {
   const [showTechFestEvents, setShowTechFestEvents] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<'upcoming' | 'past' | 'all'>('upcoming');
   
   return (
     <section id="events" className={`${!isModalView ? 'py-20' : ''} relative`}>
@@ -216,26 +220,58 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
           </div>
         )}
 
-        {/* Display TechFest 2025 prominently */}
-        <div className="mb-10">
-          <div className="max-w-4xl mx-auto">
-            <EventCard {...techFest} />
-            
-            {/* Toggle button to show/hide TechFest events */}
-            <div className="mt-4 text-center">
-              <button 
-                onClick={() => setShowTechFestEvents(!showTechFestEvents)}
-                className="flex items-center mx-auto space-x-2 px-6 py-2 bg-red-900/30 text-red-200 rounded-full hover:bg-red-900/50 transition-colors"
-              >
-                <span>{showTechFestEvents ? 'Hide TechFest Events' : 'View TechFest Events'}</span>
-                <ChevronDown className={`h-5 w-5 transition-transform ${showTechFestEvents ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
+        {/* Filter tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-gray-900/50 rounded-full p-1">
+            <button
+              onClick={() => setActiveFilter('upcoming')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === 'upcoming' ? 'bg-red-900/70 text-white' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Upcoming
+            </button>
+            <button
+              onClick={() => setActiveFilter('past')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === 'past' ? 'bg-red-900/70 text-white' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Past
+            </button>
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === 'all' ? 'bg-red-900/70 text-white' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              All
+            </button>
           </div>
         </div>
+
+        {/* Display TechFest 2025 prominently only for upcoming or all events */}
+        {(activeFilter === 'upcoming' || activeFilter === 'all') && (
+          <div className="mb-10">
+            <div className="max-w-4xl mx-auto">
+              <EventCard {...techFest} />
+              
+              {/* Toggle button to show/hide TechFest events */}
+              <div className="mt-4 text-center">
+                <button 
+                  onClick={() => setShowTechFestEvents(!showTechFestEvents)}
+                  className="flex items-center mx-auto space-x-2 px-6 py-2 bg-red-900/30 text-red-200 rounded-full hover:bg-red-900/50 transition-colors"
+                >
+                  <span>{showTechFestEvents ? 'Hide TechFest Events' : 'View TechFest Events'}</span>
+                  <ChevronDown className={`h-5 w-5 transition-transform ${showTechFestEvents ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         
-        {/* TechFest Events */}
-        {showTechFestEvents && (
+        {/* TechFest Events - only show if looking at upcoming or all events */}
+        {showTechFestEvents && (activeFilter === 'upcoming' || activeFilter === 'all') && (
           <div className="mt-8">
             <h3 className="text-2xl font-bold text-center mb-6">TechFest 2025 Events</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -243,6 +279,25 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
                 <EventCard key={index} {...event} />
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Past Events Section */}
+        {(activeFilter === 'past' || activeFilter === 'all') && pastEvents.length > 0 && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center mb-6">Past Events</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pastEvents.map((event, index) => (
+                <EventCard key={index} {...event} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Empty state for past events */}
+        {activeFilter === 'past' && pastEvents.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-gray-400">No past events to display yet. Stay tuned for future updates!</p>
           </div>
         )}
       </div>

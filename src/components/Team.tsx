@@ -112,6 +112,26 @@ const Team = () => {
               name="Shreya Patil" 
               role="Content Creator" 
             />
+            <TeamMember 
+              image="/student-tech2.jpg" 
+              name="Nikhil Verma" 
+              role="Technical Team" 
+            />
+            <TeamMember 
+              image="/student-creative2.jpg" 
+              name="Aditya Kapoor" 
+              role="Creative Team" 
+            />
+            <TeamMember 
+              image="/student-events2.jpg" 
+              name="Kavita Reddy" 
+              role="Events Team" 
+            />
+            <TeamMember 
+              image="/student-marketing2.jpg" 
+              name="Sanjay Mehta" 
+              role="Marketing Team" 
+            />
           </div>
         </div>
       </div>

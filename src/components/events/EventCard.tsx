@@ -54,6 +54,9 @@ const EventCard = ({ id, name, description, image, categories, date, status }: E
                   {category}
                 </span>
               ))}
+              <span className="px-2 py-1 text-xs rounded-full bg-red-900/30 text-red-200">
+                {status === 'upcoming' ? 'Upcoming' : 'Past'}
+              </span>
             </div>
             <h3 className={`font-bold ${isTechFest ? 'text-2xl' : 'text-xl'} text-white mb-2`}>{name}</h3>
             <p className="text-gray-400 line-clamp-2">{description}</p>
