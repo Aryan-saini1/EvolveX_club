@@ -98,8 +98,8 @@ const Team = () => {
               { image: "/souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
               { image: "/likitha.jpeg", name: "Likitha M N", role: "Core Member" },
               { image: "/.jpeg", name: "Sashidhar", role: "Core Member" },
-              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Neighbour" },
-              { image: "/.jpeg", name: "Bhanu Akshaya", role: "Roommate" }
+              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
+              { image: "/.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
             ].map((member, index) => (
               <div 
                 key={index} 
