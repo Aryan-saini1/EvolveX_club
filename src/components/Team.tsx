@@ -90,16 +90,16 @@ const Team = () => {
             {[
               { image: "/Aryan.jpeg", name: "Aryan Saini", role: "President" },
               { image: "/vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
-              { image: "/kushi.jpeg", name: "Kushi S", role: "Core Member" },
+              { image: "/anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
               { image: "/ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
               { image: "/deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
-              { image: "/anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+              { image: "/kushi.jpeg", name: "Kushi S", role: "Core Member" },
               { image: "/student-pr.jpeg", name: "Prajwal G", role: "Core Member" },
               { image: "/souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
               { image: "/likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
-              { image: "/harsh.jpeg", name: "Harsh Ringsia", role: "Neighbour" },
-              { image: "/cezzan.jpeg", name: "Cezzan Rangrej", role: "Roommate" }
+              { image: "/.jpeg", name: "Sashidhar", role: "Core Member" },
+              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Neighbour" },
+              { image: "/.jpeg", name: "Bhanu Akshaya", role: "Roommate" }
             ].map((member, index) => (
               <div 
                 key={index} 
