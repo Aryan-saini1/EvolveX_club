@@ -1,3 +1,4 @@
+
 name: Deploy Vite App
 
 on:
@@ -24,9 +25,15 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_BASE_URL: "/EvolveX_club/" # Pass the base URL during build
+
+      - name: Copy 404.html to dist folder
+        run: cp public/404.html dist/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
+          clean: true # Automatically remove deleted files from the deploy branch
