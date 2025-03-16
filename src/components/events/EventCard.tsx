@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { getAssetPath } from '../../utils/path-utils';
 
 interface EventProps {
   id: string;
@@ -24,13 +25,13 @@ const EventCard = ({ id, name, description, image, categories, date, status, sho
         <div className={`glass-card rounded-xl p-1 relative overflow-hidden ${isTechFest ? 'border-2 border-red-500' : ''}`}>
           <div className={`${isTechFest ? 'h-64 md:h-72' : 'h-48 md:h-56'} bg-gray-900/80 rounded-t-lg overflow-hidden relative`}>
           <img 
-          src={isTechFest ? "/rns-campus.jpeg" : image}  
-          alt={name} 
-          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-          onError={(e) => {
-            e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${name.split(' ').join('+')}`;
-          }}
-        />
+            src={isTechFest ? getAssetPath("rns-campus.jpeg") : image}  
+            alt={name} 
+            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+            onError={(e) => {
+              e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${name.split(' ').join('+')}`;
+            }}
+          />
             {status === 'past' && (
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                 <span className="text-white bg-red-600/80 px-4 py-2 rounded-full text-sm font-semibold">

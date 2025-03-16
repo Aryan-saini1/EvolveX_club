@@ -1,10 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import EventCard from '../components/events/EventCard';
+import { getAssetPath } from '../utils/path-utils';
 
 // Import the events data from our Events component
 const techFestEvents = [
@@ -225,19 +226,19 @@ const EventDetails = () => {
         
         <div className="pt-24 pb-16">
           <div className="container mx-auto px-4">
-            <button 
-              onClick={() => navigate(-1)}
+            <Link 
+              to="/"
               className="flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
             >
               <ArrowLeft className="mr-2 h-5 w-5" />
               Back to Home
-            </button>
+            </Link>
             
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1 relative">
                 <img 
-                  src="/techfest-banner.jpg" 
+                  src={getAssetPath("techfest-banner.jpg")} 
                   alt="TechFest 2025" 
                   className="w-full h-60 md:h-80 object-cover object-center rounded-t-xl hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
@@ -339,13 +340,13 @@ const EventDetails = () => {
       
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4">
-          <button 
-            onClick={() => navigate('/events/techfest-2025')}
+          <Link 
+            to="/events/techfest-2025"
             className="flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
             Back to TechFest Events
-          </button>
+          </Link>
           
           {selectedEvent ? (
             <div className="relative">

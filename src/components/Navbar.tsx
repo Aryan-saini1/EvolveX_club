@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link, useLocation } from 'react-router-dom';
+import { getAssetPath } from '../utils/path-utils';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +26,8 @@ const Navbar = () => {
 
   const scrollToSection = (id: string) => {
     if (isEventPage) {
-      // If on event page, navigate to home page first
-      window.location.href = `/#${id}`;
+      // Navigate to home page with the section hash
+      window.location.href = `/${id}`;
       return;
     }
     
@@ -48,9 +49,12 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/evolve.jpeg" 
+              src={getAssetPath("evolve.jpeg")} 
               alt="CLUB Logo" 
               className="h-8 mr-3" 
+              onError={(e) => {
+                e.currentTarget.src = "https://via.placeholder.com/100/111/333?text=EvolveX";
+              }}
             />
             <span className="text-xl font-bold text-gradient">EvolveX</span>
           </Link>
@@ -70,7 +74,7 @@ const Navbar = () => {
           {["home", "about", "team", "events", "contact"].map((item) => (
             <button 
               key={item}
-              onClick={() => scrollToSection(item)}
+              onClick={() => isEventPage ? window.location.href = `/#${item}` : scrollToSection(item)}
               className={`text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
               {item}
@@ -116,7 +120,10 @@ const Navbar = () => {
           {["home", "about", "team", "events", "contact"].map((item) => (
             <button 
               key={item}
-              onClick={() => scrollToSection(item)}
+              onClick={() => {
+                setIsOpen(false);
+                isEventPage ? window.location.href = `/#${item}` : scrollToSection(item);
+              }}
               className={`text-white hover:text-red-400 transition-colors uppercase text-lg font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
               {item}

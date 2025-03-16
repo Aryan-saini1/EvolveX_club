@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../utils/path-utils';
 
 const Hero = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -58,7 +59,7 @@ const Hero = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
-                  src="/evolve.jpeg" 
+                  src={getAssetPath("evolve.jpeg")} 
                   alt="EvolveX Activities" 
                   className="w-full h-auto rounded-xl"
                   onError={(e) => {
