@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link, useLocation } from 'react-router-dom';
-import { getAssetPath } from '../utils/path-utils';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     if (isEventPage) {
       // Navigate to home page with the section hash
-      window.location.href = `/${id}`;
+      window.location.href = `/#${id}`;
       return;
     }
     
@@ -48,15 +48,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img 
-              src={getAssetPath("evolve.jpeg")} 
-              alt="CLUB Logo" 
-              className="h-8 mr-3" 
-              onError={(e) => {
-                e.currentTarget.src = "https://via.placeholder.com/100/111/333?text=EvolveX";
-              }}
-            />
-            <span className="text-xl font-bold text-gradient">EvolveX</span>
+            <Logo />
+            <span className="text-xl font-bold text-gradient ml-3">EvolveX</span>
           </Link>
         </div>
 
@@ -97,14 +90,18 @@ const Navbar = () => {
         className={`fixed inset-0 bg-black/90 backdrop-blur-md z-50 transition-all duration-300 flex flex-col justify-center items-center md:hidden ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
+        onClick={() => setIsOpen(false)}
       >
         <button 
           className="absolute top-5 right-5 text-white"
-          onClick={() => setIsOpen(false)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(false);
+          }}
           aria-label="Close menu"
         >
-          <X size={24} />
-        </button>
+  <X size={24} />
+      </button>
         
         <div className="flex flex-col space-y-6 items-center">
           {isEventPage ? (

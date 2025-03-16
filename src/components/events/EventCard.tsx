@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { getAssetPath } from '../../utils/path-utils';
@@ -17,6 +17,7 @@ interface EventProps {
 
 const EventCard = ({ id, name, description, image, categories, date, status, showDetails = false }: EventProps) => {
   const isTechFest = id === "techfest-2025";
+  const [imageError, setImageError] = useState(false);
   
   return (
     <Link to={`/events/${id}`} className="block">
@@ -24,14 +25,23 @@ const EventCard = ({ id, name, description, image, categories, date, status, sho
         <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-75 transition-all duration-300"></div>
         <div className={`glass-card rounded-xl p-1 relative overflow-hidden ${isTechFest ? 'border-2 border-red-500' : ''}`}>
           <div className={`${isTechFest ? 'h-64 md:h-72' : 'h-48 md:h-56'} bg-gray-900/80 rounded-t-lg overflow-hidden relative`}>
-          <img 
-            src={isTechFest ? getAssetPath("rns-campus.jpeg") : image}  
-            alt={name} 
-            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-            onError={(e) => {
-              e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${name.split(' ').join('+')}`;
-            }}
-          />
+            {!imageError ? (
+              <img 
+                src={isTechFest ? getAssetPath("rns-campus.jpeg") : image}  
+                alt={name} 
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  console.log("Image failed to load:", isTechFest ? getAssetPath("rns-campus.jpeg") : image);
+                  setImageError(true);
+                  e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${name.split(' ').join('+')}`;
+                }}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gray-800">
+                <span className="text-red-400 font-bold text-xl">{name}</span>
+              </div>
+            )}
+            
             {status === 'past' && (
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                 <span className="text-white bg-red-600/80 px-4 py-2 rounded-full text-sm font-semibold">

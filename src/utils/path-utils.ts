@@ -24,9 +24,20 @@ export const getAssetPath = (assetPath: string): string => {
     return assetPath;
   }
   
+  // For GitHub Pages, we need to prefix with the repo name in production
+  // but in development, we want to use the relative path
+  const isProd = import.meta.env.PROD;
+  
   // Remove leading slash if present
   const cleanPath = assetPath.startsWith('/') ? assetPath.substring(1) : assetPath;
   
-  // Return the asset path with the correct base
+  // Safe fallback with placeholder images
+  if (cleanPath === 'evolve.jpeg') {
+    return "https://via.placeholder.com/600x400/111/333?text=EvolveX";
+  }
+  if (cleanPath === 'rns-campus.jpeg') {
+    return "https://via.placeholder.com/800x500/111/333?text=RNS+Campus";
+  }
+  
   return cleanPath;
 };

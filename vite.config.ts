@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/EvolveX_club/", // Set the base path to match your GitHub repository name
+  base: mode === 'production' ? "/EvolveX_club/" : "/",
   server: {
     host: "::",
     port: 8080,

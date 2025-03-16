@@ -5,6 +5,7 @@ import { getAssetPath } from '../utils/path-utils';
 
 const Hero = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,14 +59,22 @@ const Hero = () => {
             <div className="relative hover-scale-image max-w-xs md:max-w-sm mx-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
-                <img 
-                  src={getAssetPath("evolve.jpeg")} 
-                  alt="EvolveX Activities" 
-                  className="w-full h-auto rounded-xl"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://via.placeholder.com/600x400/111/333?text=EvolveX";
-                  }}
-                />
+                {!imageError ? (
+                  <img 
+                    src={getAssetPath("evolve.jpeg")} 
+                    alt="EvolveX Activities" 
+                    className="w-full h-auto rounded-xl"
+                    onError={(e) => {
+                      console.log("Image failed to load:", getAssetPath("evolve.jpeg"));
+                      setImageError(true);
+                      e.currentTarget.src = "https://via.placeholder.com/600x400/111/333?text=EvolveX";
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-64 bg-gray-800 rounded-xl flex items-center justify-center text-red-400">
+                    <p className="text-xl font-bold">EvolveX</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
