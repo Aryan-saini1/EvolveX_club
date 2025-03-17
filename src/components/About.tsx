@@ -10,8 +10,8 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/3">
-            <div className="relative hover-scale-image">
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30 animate-pulse-glow"></div>
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 <img 
                   src="rns-campus.jpeg" 
@@ -84,4 +84,3 @@ const About = () => {
 };
 
 export default About;
-
