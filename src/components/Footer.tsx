@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { getAssetPath } from '../utils/path-utils';
 
 const Footer = () => {
   return (
@@ -8,9 +9,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
             <img 
-              src="/evolve.jpeg" 
+              src={getAssetPath("evolve.jpeg")}
               alt="CLUB Logo" 
-              className="h-10 mr-3" 
+              className="h-10 mr-3"
+              onError={(e) => {
+                e.currentTarget.src = "https://via.placeholder.com/40x40/111/333?text=EX";
+              }}
             />
             <div>
               <div className="text-xl font-bold text-gradient">EvolveX</div>

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { getAssetPath } from '../utils/path-utils';
 
 const Logo = () => {
   const [imageError, setImageError] = useState(false);
@@ -8,7 +9,7 @@ const Logo = () => {
     <div className="h-8 w-8 rounded-full overflow-hidden bg-red-900/30">
       {!imageError ? (
         <img 
-          src="evolve.jpeg" 
+          src={getAssetPath("evolve.jpeg")}
           alt="EvolveX Logo" 
           className="h-full w-full object-cover"
           onError={() => setImageError(true)}

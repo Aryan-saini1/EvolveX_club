@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { getAssetPath } from '../utils/path-utils';
 
 const TeamMember = ({ 
   image, 
@@ -12,6 +13,8 @@ const TeamMember = ({
   role: string; 
   isStaff?: boolean;
 }) => {
+  const [imageError, setImageError] = useState(false);
+  
   return (
     <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''}`}>
       <div className={`${isStaff ? 'w-72 md:w-80' : ''}`}>
@@ -20,10 +23,11 @@ const TeamMember = ({
         <div className="glass-card rounded-xl p-1 relative">
           <div className="bg-gray-900/80 rounded-lg overflow-hidden">
           <img 
-            src={image} 
+            src={getAssetPath(image)}
             alt={name} 
             className="w-40 h-40 md:w-44 md:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300 mx-auto"
             onError={(e) => {
+              setImageError(true);
               e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
             }}
           />
@@ -88,18 +92,18 @@ const Team = () => {
           <h3 className={`text-2xl font-semibold mb-8 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              { image: "/Aryan.jpeg", name: "Aryan Saini", role: "President" },
-              { image: "/vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
-              { image: "/anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
-              { image: "/ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
-              { image: "/deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
-              { image: "/kushi.jpeg", name: "Kushi S", role: "Core Member" },
-              { image: "/student-pr.jpeg", name: "Prajwal G", role: "Core Member" },
-              { image: "/souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
-              { image: "/likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "/.jpeg", name: "Sashidhar", role: "Core Member" },
-              { image: "/aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
-              { image: "/.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
+              { image: "Aryan.jpeg", name: "Aryan Saini", role: "President" },
+              { image: "vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
+              { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+              { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
+              { image: "deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
+              { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
+              { image: "student-pr.jpeg", name: "Prajwal G", role: "Core Member", fallback: true },
+              { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
+              { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
+              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member", fallback: true },
+              { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
+              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Core Member", fallback: true }
             ].map((member, index) => (
               <div 
                 key={index} 
