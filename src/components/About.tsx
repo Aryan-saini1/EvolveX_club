@@ -1,7 +1,10 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { getAssetPath } from '../utils/path-utils';
 
 const About = () => {
+  const [imageError, setImageError] = useState(false);
+  
   return (
     <section id="about" className="py-20 relative">
       {/* Background gradient */}
@@ -10,17 +13,25 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/3">
-            <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
+            <div className="relative hover-scale-image">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
-                <img 
-                  src="rns-campus.jpeg" 
-                  alt="RNSIT Campus" 
-                  className="w-full h-auto rounded-xl"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://via.placeholder.com/400x300/111/333?text=RNSIT+Campus";
-                  }}
-                />
+                {!imageError ? (
+                  <img 
+                    src={getAssetPath("rns-campus.jpeg")} 
+                    alt="RNSIT Campus" 
+                    className="w-full h-auto rounded-xl"
+                    onError={(e) => {
+                      console.log("Image failed to load:", getAssetPath("rns-campus.jpeg"));
+                      setImageError(true);
+                      e.currentTarget.src = "https://via.placeholder.com/400x300/111/333?text=RNSIT+Campus";
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-64 bg-gray-800 rounded-xl flex items-center justify-center text-red-400">
+                    <p className="text-xl font-bold">RNSIT Campus</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
