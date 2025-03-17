@@ -1,1 +1,3 @@
 
+# This file prevents GitHub Pages from ignoring files that begin with an underscore
+# It's required for proper Vite asset handling on GitHub Pages
