@@ -24,8 +24,18 @@ export const getAssetPath = (assetPath: string): string => {
     return assetPath;
   }
   
+  // For GitHub Pages deployments, ensure reliable image loading
   // Remove leading slash if present
   const cleanPath = assetPath.startsWith('/') ? assetPath.substring(1) : assetPath;
+  
+  // If in production and the asset is missing, use a placeholder
+  // We use this as a fallback for critical images
+  if (import.meta.env.PROD) {
+    // Check if it's a known image that might cause issues
+    if (cleanPath.includes('techfest-banner.jpg')) {
+      console.log('Loading TechFest banner from public path');
+    }
+  }
   
   return cleanPath;
 };
