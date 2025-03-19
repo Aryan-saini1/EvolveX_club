@@ -25,7 +25,7 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     }, 60);
 
     // Audio for loading
-    const audioElement = new Audio('/loading-sound.mp3');
+    const audioElement = new Audio('/gun_sound.mp3');
     audioElement.volume = 0.3;
     audioElement.play().catch(err => console.log('Audio playback prevented:', err));
 
