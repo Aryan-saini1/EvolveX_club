@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAssetPath } from '../utils/path-utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,22 +24,22 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className={`flex flex-col ${isMobile ? 'gap-6 mt-10' : 'md:flex-row items-center justify-between gap-10'}`}>
           <div className={`md:w-3/5 text-center md:text-left ${animationComplete ? 'animate-scale-in' : 'opacity-0'}`}>
-            <div className="inline-block text-xs font-semibold bg-red-900/30 text-red-200 px-3 py-1 rounded-full mb-4">
+            <div className="inline-block text-xs font-semibold bg-red-900/30 text-red-200 px-3 py-1 rounded-full mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               RNSIT's Premier Tech Club
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 glow-text">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 glow-text animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <span className="text-gradient">Evolve</span>X
             </h1>
-            <h2 className="text-xl md:text-2xl text-gray-300 mb-8">
+            <h2 className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <span className="italic">Evolving Beyond Limits</span>
             </h2>
-            <p className="text-lg text-gray-400 mb-8 max-w-xl">
+            <p className="text-lg text-gray-400 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
               Join the revolution of innovation, technology, and collaboration at RNSIT's newest and most ambitious technical club.
             </p>
             
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <Link 
                 to="/events/techfest-2025"
                 className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow"
@@ -55,7 +57,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className={`md:w-2/5 ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
+          <div className={`md:w-2/5 ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
             <div className="relative hover-scale-image max-w-xs md:max-w-sm mx-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
