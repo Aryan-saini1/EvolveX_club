@@ -89,15 +89,23 @@
   }
   
   .nav-link-mobile {
-    @apply text-shadow-md;
+    @apply text-shadow-lg font-bold;
   }
   
   .text-shadow-sm {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   }
   
   .text-shadow-md {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1), 0 0 3px rgba(255, 0, 0, 0.5);
+  }
+  
+  .shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.4);
   }
   
   /* Lightning and Thunder effects */
@@ -178,8 +186,8 @@
   }
 
   .nav-glass {
-    backdrop-filter: blur(10px);
-    @apply bg-black/70 border-b border-white/10 shadow-lg;
+    backdrop-filter: blur(16px);
+    @apply bg-black/80 border-b border-red-900/30 shadow-lg;
   }
   
   .glow-text {
@@ -239,7 +247,7 @@
     }
     
     .button-mobile {
-      @apply w-full justify-center min-h-[44px] min-w-[120px];
+      @apply w-full justify-center min-h-[48px] min-w-[140px] text-base;
     }
     
     section {
@@ -254,6 +262,17 @@
     /* Fix button spacing on mobile */
     .button-container {
       @apply flex flex-col sm:flex-row gap-4 w-full sm:w-auto;
+    }
+
+    /* Improved nav visibility for mobile */
+    .nav-glass, 
+    .nav-link-mobile {
+      @apply text-shadow-lg;
+    }
+
+    /* Better button click targets for mobile */
+    button, a {
+      @apply min-h-[44px] px-4;
     }
   }
 
@@ -283,6 +302,39 @@
   
   /* Fix for content overlap */
   .content-container {
-    @apply my-8 md:my-12;
+    @apply my-8 md:my-12 px-4 md:px-0;
+  }
+
+  /* Fix for desktop content spacing */
+  @media (min-width: 768px) {
+    section#home {
+      @apply min-h-screen flex items-center;
+      padding-top: 5rem;
+    }
+    
+    .nav-glass {
+      @apply bg-black/80 backdrop-blur-xl;
+    }
+
+    /* Enhanced desktop navigation */
+    .nav-link {
+      @apply text-shadow-sm text-white hover:text-red-400;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: theme('colors.red.500');
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
   }
 }

@@ -16,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-12">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-32 pb-12">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-red-900/30 rounded-full filter blur-3xl animate-float"></div>
