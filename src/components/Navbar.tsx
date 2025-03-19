@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 w-full z-40 transition-all duration-300",
-        scrolled ? "nav-glass py-3" : "bg-transparent py-5"
+        scrolled ? "nav-glass py-3" : "bg-black/40 backdrop-blur-sm py-4 md:py-5"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -77,7 +77,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden text-white p-1"
+          className="md:hidden text-white p-2 bg-red-900/30 rounded-md"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -87,23 +87,19 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div 
-        className={`fixed inset-0 bg-black/90 backdrop-blur-md z-50 transition-all duration-300 flex flex-col justify-center items-center md:hidden ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`fixed inset-0 bg-black/95 backdrop-blur-md z-50 transition-all duration-300 flex flex-col justify-center items-center md:hidden ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
-        onClick={() => setIsOpen(false)}
       >
         <button 
-          className="absolute top-5 right-5 text-white"
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsOpen(false);
-          }}
+          className="absolute top-5 right-5 text-white bg-red-900/30 p-2 rounded-full"
+          onClick={() => setIsOpen(false)}
           aria-label="Close menu"
         >
-  <X size={24} />
-      </button>
+          <X size={24} />
+        </button>
         
-        <div className="flex flex-col space-y-6 items-center">
+        <div className="flex flex-col space-y-8 items-center">
           {isEventPage ? (
             <Link 
               to="/"
@@ -121,7 +117,7 @@ const Navbar = () => {
                 setIsOpen(false);
                 isEventPage ? window.location.href = `/#${item}` : scrollToSection(item);
               }}
-              className={`text-white hover:text-red-400 transition-colors uppercase text-lg font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
+              className={`text-white hover:text-red-400 transition-colors uppercase text-xl font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
               {item}
             </button>
