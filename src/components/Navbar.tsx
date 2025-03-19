@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 w-full z-40 transition-all duration-300",
-        scrolled ? "nav-glass py-3" : "bg-black/40 backdrop-blur-sm py-4 md:py-5"
+        scrolled ? "nav-glass shadow-lg py-3" : "bg-black/60 backdrop-blur-sm py-4 md:py-5"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -58,7 +58,7 @@ const Navbar = () => {
           {isEventPage ? (
             <Link 
               to="/"
-              className="text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider flex items-center"
+              className="text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider flex items-center nav-link"
             >
               <Home size={18} className="mr-1" /> Home
             </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
             <button 
               key={item}
               onClick={() => isEventPage ? window.location.href = `/#${item}` : scrollToSection(item)}
-              className={`text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
+              className={`text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider nav-link ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
               {item}
             </button>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden text-white p-2 bg-red-900/30 rounded-md"
+          className="md:hidden text-white p-2 bg-red-900/50 rounded-md hover:bg-red-800/60 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -92,7 +92,7 @@ const Navbar = () => {
         }`}
       >
         <button 
-          className="absolute top-5 right-5 text-white bg-red-900/30 p-2 rounded-full"
+          className="absolute top-5 right-5 text-white bg-red-900/50 p-2 rounded-full hover:bg-red-800/60 transition-colors"
           onClick={() => setIsOpen(false)}
           aria-label="Close menu"
         >
@@ -103,7 +103,7 @@ const Navbar = () => {
           {isEventPage ? (
             <Link 
               to="/"
-              className="text-white hover:text-red-400 transition-colors uppercase text-lg font-medium tracking-wider flex items-center"
+              className="text-white hover:text-red-400 transition-colors uppercase text-lg font-medium tracking-wider flex items-center nav-link-mobile"
               onClick={() => setIsOpen(false)}
             >
               <Home size={20} className="mr-2" /> Home
@@ -117,7 +117,7 @@ const Navbar = () => {
                 setIsOpen(false);
                 isEventPage ? window.location.href = `/#${item}` : scrollToSection(item);
               }}
-              className={`text-white hover:text-red-400 transition-colors uppercase text-xl font-medium tracking-wider ${isEventPage && item === 'home' ? 'hidden' : ''}`}
+              className={`text-white hover:text-red-400 transition-colors uppercase text-xl font-medium tracking-wider nav-link-mobile ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
               {item}
             </button>

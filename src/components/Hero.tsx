@@ -16,17 +16,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-8">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-12">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-red-900/30 rounded-full filter blur-3xl animate-float"></div>
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-red-700/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '-2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 z-10">
-        <div className={`flex flex-col ${isMobile ? 'gap-10 mt-8' : 'md:flex-row items-center justify-between gap-10'}`}>
+      <div className="container mx-auto px-5 md:px-6 z-10">
+        <div className={`flex flex-col ${isMobile ? 'gap-12' : 'md:flex-row items-center justify-between gap-10'}`}>
           <div className={`${isMobile ? 'w-full' : 'md:w-3/5'} text-center md:text-left ${animationComplete ? 'animate-scale-in' : 'opacity-0'}`}>
-            <div className="inline-block text-xs font-semibold bg-red-900/50 text-red-100 px-3 py-1 rounded-full mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <div className="inline-block text-xs font-semibold bg-red-900/50 text-white px-3 py-1 rounded-full mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               RNSIT's Premier Tech Club
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 glow-text animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -42,12 +42,12 @@ const Hero = () => {
             <div className="flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <Link 
                 to="/events/techfest-2025"
-                className="button-glow px-5 py-3 md:px-6 md:py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow shadow-lg"
+                className="button-glow px-5 py-3 md:px-6 md:py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow shadow-lg min-w-[140px] text-center"
               >
                 TechFest 2025
               </Link>
               <button 
-                className="button-glow px-5 py-3 md:px-6 md:py-3 bg-black/50 border border-white/20 text-white rounded-lg font-medium hover:bg-black/80 transition-all shadow-lg"
+                className="button-glow px-5 py-3 md:px-6 md:py-3 bg-black/50 border border-white/20 text-white rounded-lg font-medium hover:bg-black/80 transition-all shadow-lg min-w-[140px]"
                 onClick={() => {
                   document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -57,7 +57,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className={`${isMobile ? 'w-full mt-4' : 'md:w-2/5'} ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
+          <div className={`${isMobile ? 'w-full mt-2' : 'md:w-2/5'} ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
             <div className="relative hover-scale-image max-w-xs sm:max-w-sm mx-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
@@ -65,7 +65,7 @@ const Hero = () => {
                   <img 
                     src={getAssetPath("evolve.jpeg")} 
                     alt="EvolveX Activities" 
-                    className="w-full h-auto rounded-xl"
+                    className="w-full h-auto rounded-xl object-cover"
                     onError={(e) => {
                       console.log("Image failed to load:", getAssetPath("evolve.jpeg"));
                       setImageError(true);
