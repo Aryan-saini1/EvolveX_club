@@ -55,12 +55,12 @@ const Team = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const teamSectionVisible = scrollY > 600;
+  const teamSectionVisible = scrollY > 400; // Reduced from 600 to make it visible earlier
   
   return (
-    <section id="team" className="py-20 relative">
+    <section id="team" className="py-16 relative"> {/* Reduced padding from py-20 to py-16 */}
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-16 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-12 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl font-bold mb-2">
             <span className="text-gradient">Our</span> Team
           </h2>
@@ -70,8 +70,8 @@ const Team = () => {
           </p>
         </div>
         
-        <div className={`mb-12 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
-          <h3 className="text-2xl font-semibold mb-8 text-center text-white">Faculty Advisors</h3>
+        <div className={`mb-10 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
+          <h3 className="text-2xl font-semibold mb-6 text-center text-white">Faculty Advisors</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <TeamMember 
               image="kavita.webp" 
@@ -89,8 +89,10 @@ const Team = () => {
         </div>
         
         <div>
-          <h3 className={`text-2xl font-semibold mb-8 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <h3 className={`text-2xl font-semibold mb-6 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
+          
+          {/* Improved hexagonal-inspired layout for team members */}
+          <div className="flex flex-wrap justify-center gap-5">
             {[
               { image: "Aryan.jpeg", name: "Aryan Saini", role: "President" },
               { image: "vismaya.jpeg", name: "Vismaya S", role: "Vice President" },
@@ -98,18 +100,26 @@ const Team = () => {
               { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
               { image: "deeta.jpeg", name: "Deeta Patil", role: "Design Lead" },
               { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
-              { image: "prajwal.jpeg", name: "Prajwal G", role: "PR Coordinator", fallback: true },
+              { image: "prajwal.jpeg", name: "Prajwal G", role: "PR Coordinator" },
               { image: "souravi.jpeg", name: "Souravi Hegde", role: "Events Manager" },
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer", fallback: true },
+              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer" },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
+<<<<<<< HEAD
               { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member", fallback: true },
               { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
+=======
+              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
+              { image: "harsh.jpeg", name: "Harsh Kumar", role: "Technical Member" }
+>>>>>>> 1238a73e4c8b0470985379c2383edf58b028b0a4
             ].map((member, index) => (
               <div 
                 key={index} 
-                className={`transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                style={{ transitionDelay: `${0.2 + (index * 0.05)}s` }}
+                className={`w-[170px] sm:w-[160px] md:w-[170px] transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ 
+                  transitionDelay: `${0.2 + (index * 0.05)}s`,
+                  transform: index % 2 === 1 ? 'translateY(15px)' : 'translateY(0)' // Staggered arrangement
+                }}
               >
                 <TeamMember 
                   image={member.image} 

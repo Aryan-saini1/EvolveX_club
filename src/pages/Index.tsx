@@ -46,7 +46,7 @@ const Index = () => {
       {loading ? (
         <Loading onLoadComplete={() => setLoading(false)} />
       ) : (
-        <>
+        <div className="content-wrapper">
           <Navbar />
           <Hero />
           <About />
@@ -54,7 +54,7 @@ const Index = () => {
           <Events showAllEvents={true} />
           <Contact />
           <Footer />
-        </>
+        </div>
       )}
     </div>
   );

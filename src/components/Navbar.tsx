@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 w-full z-40 transition-all duration-300",
-        scrolled ? "bg-black/95 shadow-lg py-3" : "bg-black/90 py-4"
+        scrolled ? "bg-black shadow-lg py-2" : "bg-black py-3"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -58,9 +58,9 @@ const Navbar = () => {
           {isEventPage ? (
             <Link 
               to="/"
-              className="text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider flex items-center nav-link text-shadow-md"
+              className="text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider flex items-center nav-link"
             >
-              <Home size={18} className="mr-1" /> Home
+              <Home size={18} className="mr-1" /> HOME
             </Link>
           ) : null}
           
@@ -68,9 +68,9 @@ const Navbar = () => {
             <button 
               key={item}
               onClick={() => isEventPage ? window.location.href = `/#${item}` : scrollToSection(item)}
-              className={`text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider nav-link text-shadow-md ${isEventPage && item === 'home' ? 'hidden' : ''}`}
+              className={`text-white hover:text-red-400 transition-colors uppercase text-sm font-medium tracking-wider nav-link ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
-              {item}
+              {item.toUpperCase()}
             </button>
           ))}
         </div>
@@ -106,7 +106,7 @@ const Navbar = () => {
               className="text-white hover:text-red-400 transition-colors uppercase text-lg font-bold tracking-wider flex items-center nav-link-mobile"
               onClick={() => setIsOpen(false)}
             >
-              <Home size={20} className="mr-2" /> Home
+              <Home size={20} className="mr-2" /> HOME
             </Link>
           ) : null}
           
@@ -119,7 +119,7 @@ const Navbar = () => {
               }}
               className={`text-white hover:text-red-400 transition-colors uppercase text-xl font-bold tracking-wider nav-link-mobile shadow-text ${isEventPage && item === 'home' ? 'hidden' : ''}`}
             >
-              {item}
+              {item.toUpperCase()}
             </button>
           ))}
         </div>
