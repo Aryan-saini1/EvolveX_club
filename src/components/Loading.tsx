@@ -8,7 +8,6 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
   const [progress, setProgress] = useState(0);
   const [lightningSparks, setLightningSparks] = useState(false);
-  const [audioMuted, setAudioMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -26,21 +25,29 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
       });
     }, 60);
 
-    // Audio for loading - initially muted
+    // Audio setup with automatic unmuting
     const audioElement = new Audio('/gun_sound.mp3');
-    audioElement.volume = 0;
+    audioElement.volume = 0; // Start with volume at 0
     audioRef.current = audioElement;
     
-    // Play audio and handle autoplay restrictions
+    // Play audio (needed to start loading it)
     audioElement.play().catch(err => console.log('Audio playback prevented:', err));
     
-    // After 1 second, unmute the audio if it's playing
-    const audioTimeout = setTimeout(() => {
+    // Automatically increase volume after a short delay (750ms)
+    const audioUnmuteTimeout = setTimeout(() => {
       if (audioElement && !audioElement.paused) {
-        audioElement.volume = 0.3;
-        setAudioMuted(false);
+        // Gradually increase volume
+        let vol = 0;
+        const fadeIn = setInterval(() => {
+          vol += 0.05;
+          if (vol >= 0.3) {
+            vol = 0.3;
+            clearInterval(fadeIn);
+          }
+          audioElement.volume = vol;
+        }, 50);
       }
-    }, 1000);
+    }, 750);
 
     // Lightning effect sequence - more intense strike
     const triggerLightning = () => {
@@ -68,23 +75,12 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     return () => {
       clearInterval(intervalId);
       clearInterval(lightningIntervalId);
-      clearTimeout(audioTimeout);
+      clearTimeout(audioUnmuteTimeout);
       if (audioElement) {
         audioElement.pause();
       }
     };
   }, [onLoadComplete]);
-
-  const toggleMute = () => {
-    if (audioRef.current) {
-      if (audioMuted) {
-        audioRef.current.volume = 0.3;
-      } else {
-        audioRef.current.volume = 0;
-      }
-      setAudioMuted(!audioMuted);
-    }
-  };
 
   return (
     <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
@@ -117,13 +113,6 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
       <p className="mt-4 text-red-400 font-bold text-xl">
         {progress}%
       </p>
-      
-      <button 
-        onClick={toggleMute}
-        className="absolute bottom-4 right-4 text-white/70 hover:text-white text-xs bg-black/50 px-3 py-1 rounded-full"
-      >
-        {audioMuted ? "Unmute" : "Mute"}
-      </button>
     </div>
   );
 };
