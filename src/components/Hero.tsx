@@ -16,14 +16,14 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden pt-16 pb-12">
+    <section id="home" className="relative overflow-hidden pt-10 pb-12">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-red-900/30 rounded-full filter blur-3xl animate-float"></div>
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-red-700/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '-2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-5 md:px-6 z-10 py-10 md:py-16">
+      <div className="container mx-auto px-5 md:px-6 z-10 pt-4 md:pt-6">
         <div className={`flex flex-col ${isMobile ? 'gap-12' : 'md:flex-row items-center justify-between gap-10'}`}>
           <div className={`${isMobile ? 'w-full' : 'md:w-3/5'} text-center md:text-left ${animationComplete ? 'animate-scale-in' : 'opacity-0'}`}>
             <div className="inline-block text-xs font-semibold bg-red-900/50 text-white px-3 py-1 rounded-full mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -65,7 +65,7 @@ const Hero = () => {
                   <img 
                     src={getAssetPath("evolve.jpeg")} 
                     alt="EvolveX Activities" 
-                    className="w-full h-auto rounded-xl object-cover"
+                    className="w-full h-auto rounded-xl object-cover transform transition-transform duration-300 hover:scale-110"
                     onError={(e) => {
                       console.log("Image failed to load:", getAssetPath("evolve.jpeg"));
                       setImageError(true);

@@ -6,18 +6,20 @@ const TeamMember = ({
   image, 
   name, 
   role, 
-  isStaff = false 
+  isStaff = false,
+  isLeader = false 
 }: { 
   image: string; 
   name: string; 
   role: string; 
   isStaff?: boolean;
+  isLeader?: boolean;
 }) => {
   const [imageError, setImageError] = useState(false);
   
   return (
-    <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''}`}>
-      <div className={`${isStaff ? 'w-72 md:w-80' : ''}`}>
+    <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''} ${isLeader ? 'w-full flex justify-center' : ''}`}>
+      <div className={`${isStaff ? 'w-72 md:w-80' : ''} ${isLeader ? 'w-56 md:w-64' : ''}`}>
       <div className="relative group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
         <div className="glass-card rounded-xl p-1 relative">
@@ -25,7 +27,7 @@ const TeamMember = ({
           <img 
             src={getAssetPath(image)}
             alt={name} 
-            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center enhanced-hover-zoom transition-transform duration-300 mx-auto"
+            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center transition-transform duration-300 hover:scale-125 mx-auto"
             onError={(e) => {
               setImageError(true);
               e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
@@ -55,10 +57,10 @@ const Team = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const teamSectionVisible = scrollY > 400; // Reduced from 600 to make it visible earlier
+  const teamSectionVisible = scrollY > 300; // Reduced to make it visible earlier
   
   return (
-    <section id="team" className="py-16 relative"> {/* Reduced padding from py-20 to py-16 */}
+    <section id="team" className="py-16 relative">
       <div className="container mx-auto px-4">
         <div className={`text-center mb-12 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl font-bold mb-2">
@@ -91,10 +93,24 @@ const Team = () => {
         <div>
           <h3 className={`text-2xl font-semibold mb-6 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
           
-          {/* Improved hexagonal-inspired layout for team members */}
-          <div className="flex flex-wrap justify-center gap-5">
+          {/* Leader in center */}
+          <div className="mb-8">
+            <div 
+              className={`transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+              style={{ transitionDelay: '0.25s' }}
+            >
+              <TeamMember 
+                image="Aryan.jpeg" 
+                name="Aryan Saini" 
+                role="President"
+                isLeader={true} 
+              />
+            </div>
+          </div>
+          
+          {/* Team members in a single line */}
+          <div className="flex flex-wrap justify-center gap-4">
             {[
-              { image: "Aryan.jpeg", name: "Aryan Saini", role: "President" },
               { image: "vismaya.jpeg", name: "Vismaya S", role: "Vice President" },
               { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Technical Lead" },
               { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
@@ -105,16 +121,13 @@ const Team = () => {
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
               { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer" },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
-              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member", fallback: true },
-              { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
+              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
+              { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member" }
             ].map((member, index) => (
               <div 
                 key={index} 
-                className={`w-[170px] sm:w-[160px] md:w-[170px] transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                style={{ 
-                  transitionDelay: `${0.2 + (index * 0.05)}s`,
-                  transform: index % 2 === 1 ? 'translateY(15px)' : 'translateY(0)' // Staggered arrangement
-                }}
+                className={`w-[150px] sm:w-[140px] md:w-[150px] transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ transitionDelay: `${0.3 + (index * 0.05)}s` }}
               >
                 <TeamMember 
                   image={member.image} 
