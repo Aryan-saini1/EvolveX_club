@@ -31,23 +31,52 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     audioRef.current = audioElement;
     
     // Play audio (needed to start loading it)
-    audioElement.play().catch(err => console.log('Audio playback prevented:', err));
-    
-    // Automatically increase volume after a short delay (750ms)
-    const audioUnmuteTimeout = setTimeout(() => {
-      if (audioElement && !audioElement.paused) {
-        // Gradually increase volume
-        let vol = 0;
-        const fadeIn = setInterval(() => {
-          vol += 0.05;
-          if (vol >= 0.3) {
-            vol = 0.3;
-            clearInterval(fadeIn);
+    const playAudio = async () => {
+      try {
+        await audioElement.play();
+        
+        // Automatically increase volume after a short delay (750ms)
+        setTimeout(() => {
+          if (audioElement && !audioElement.paused) {
+            // Gradually increase volume
+            let vol = 0;
+            const fadeIn = setInterval(() => {
+              vol += 0.05;
+              if (vol >= 0.3) {
+                vol = 0.3;
+                clearInterval(fadeIn);
+              }
+              audioElement.volume = vol;
+            }, 50);
           }
-          audioElement.volume = vol;
-        }, 50);
+        }, 750);
+      } catch (err) {
+        console.log('Audio playback prevented:', err);
+        
+        // Add event listener to try playing on user interaction
+        const tryPlayOnInteraction = () => {
+          audioElement.play().then(() => {
+            // Volume fade in
+            let vol = 0;
+            const fadeIn = setInterval(() => {
+              vol += 0.05;
+              if (vol >= 0.3) {
+                vol = 0.3;
+                clearInterval(fadeIn);
+              }
+              audioElement.volume = vol;
+            }, 50);
+            
+            // Remove the event listener once played
+            document.removeEventListener('click', tryPlayOnInteraction);
+          }).catch(e => console.log('Still prevented:', e));
+        };
+        
+        document.addEventListener('click', tryPlayOnInteraction);
       }
-    }, 750);
+    };
+    
+    playAudio();
 
     // Lightning effect sequence - more intense strike
     const triggerLightning = () => {
@@ -75,7 +104,6 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     return () => {
       clearInterval(intervalId);
       clearInterval(lightningIntervalId);
-      clearTimeout(audioUnmuteTimeout);
       if (audioElement) {
         audioElement.pause();
       }

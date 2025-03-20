@@ -46,7 +46,7 @@ const Index = () => {
       {loading ? (
         <Loading onLoadComplete={() => setLoading(false)} />
       ) : (
-        <div className="content-wrapper pt-0"> {/* Removed top padding */}
+        <div className="content-wrapper">
           <Navbar />
           <Hero />
           <About />
