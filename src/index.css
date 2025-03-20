@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,7 +52,7 @@
 
 @layer base {
   * {
-    @apply border-[hsl(var(--border))] selection:bg-red-900/50 selection:text-white;
+    @apply border-border selection:bg-red-900/50 selection:text-white;
   }
 
   body {
