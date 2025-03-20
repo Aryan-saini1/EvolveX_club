@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -145,6 +146,15 @@
   
   .hover-scale-image:hover {
     @apply transform scale-[1.02];
+  }
+  
+  /* Enhanced hover effects */
+  .enhanced-hover-scale {
+    @apply transition-all duration-300 hover:transform hover:scale-[1.05];
+  }
+  
+  .enhanced-hover-zoom {
+    @apply transition-all duration-300 hover:transform hover:scale-[1.12];
   }
 
   @keyframes thunder {

@@ -25,7 +25,7 @@ const TeamMember = ({
           <img 
             src={getAssetPath(image)}
             alt={name} 
-            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300 mx-auto"
+            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center enhanced-hover-zoom transition-transform duration-300 mx-auto"
             onError={(e) => {
               setImageError(true);
               e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
@@ -93,17 +93,18 @@ const Team = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
               { image: "Aryan.jpeg", name: "Aryan Saini", role: "President" },
-              { image: "vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
-              { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+              { image: "vismaya.jpeg", name: "Vismaya S", role: "Vice President" },
+              { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Technical Lead" },
               { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
-              { image: "deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
+              { image: "deeta.jpeg", name: "Deeta Patil", role: "Design Lead" },
               { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
-              { image: "student-pr.jpeg", name: "Prajwal G", role: "Core Member", fallback: true },
-              { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
+              { image: "student-pr.jpeg", name: "Prajwal G", role: "PR Coordinator", fallback: true },
+              { image: "souravi.jpeg", name: "Souravi Hegde", role: "Events Manager" },
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member", fallback: true },
-              { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
-              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Core Member", fallback: true }
+              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer", fallback: true },
+              { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
+              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Core Member", fallback: true },
+              { image: "harsh.jpeg", name: "Harsh Kumar", role: "Technical Member", fallback: true }
             ].map((member, index) => (
               <div 
                 key={index} 

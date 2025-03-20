@@ -16,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-32 pb-12">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-12">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-red-900/30 rounded-full filter blur-3xl animate-float"></div>
@@ -58,7 +58,7 @@ const Hero = () => {
           </div>
           
           <div className={`${isMobile ? 'w-full mt-2' : 'md:w-2/5'} ${animationComplete ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
-            <div className="relative hover-scale-image max-w-xs sm:max-w-sm mx-auto">
+            <div className="relative enhanced-hover-scale max-w-xs sm:max-w-sm mx-auto">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-50 animate-pulse-glow"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 {!imageError ? (
