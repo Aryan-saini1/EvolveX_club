@@ -98,13 +98,13 @@ const Team = () => {
               { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
               { image: "deeta.jpeg", name: "Deeta Patil", role: "Design Lead" },
               { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
-              { image: "student-pr.jpeg", name: "Prajwal G", role: "PR Coordinator", fallback: true },
+              { image: "prajwal.jpeg", name: "Prajwal G", role: "PR Coordinator", fallback: true },
               { image: "souravi.jpeg", name: "Souravi Hegde", role: "Events Manager" },
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
               { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer", fallback: true },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
-              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Core Member", fallback: true },
-              { image: "harsh.jpeg", name: "Harsh Kumar", role: "Technical Member", fallback: true }
+              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member", fallback: true },
+              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
             ].map((member, index) => (
               <div 
                 key={index} 
