@@ -105,13 +105,8 @@ const Team = () => {
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
               { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer" },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
-<<<<<<< HEAD
               { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member", fallback: true },
               { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
-=======
-              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
-              { image: "harsh.jpeg", name: "Harsh Kumar", role: "Technical Member" }
->>>>>>> 1238a73e4c8b0470985379c2383edf58b028b0a4
             ].map((member, index) => (
               <div 
                 key={index} 
