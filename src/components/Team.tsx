@@ -109,34 +109,34 @@ const Team = () => {
           </div>
           
           {/* Team members in a single line */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { image: "vismaya.jpeg", name: "Vismaya S", role: "Vice President" },
-              { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Technical Lead" },
-              { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
-              { image: "deeta.jpeg", name: "Deeta Patil", role: "Design Lead" },
-              { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
-              { image: "prajwal.jpeg", name: "Prajwal G", role: "PR Coordinator" },
-              { image: "souravi.jpeg", name: "Souravi Hegde", role: "Events Manager" },
-              { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer" },
-              { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
-              { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
-              { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member" }
-            ].map((member, index) => (
-              <div 
-                key={index} 
-                className={`w-[150px] sm:w-[140px] md:w-[150px] transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                style={{ transitionDelay: `${0.3 + (index * 0.05)}s` }}
-              >
-                <TeamMember 
-                  image={member.image} 
-                  name={member.name} 
-                  role={member.role}
-                />
-              </div>
-            ))}
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
+          {[
+            { image: "vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
+            { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+            { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
+            { image: "deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
+            { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
+            { image: "prajwal.jpeg", name: "Prajwal G", role: "Core Member" },
+            { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
+            { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
+            { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member" },
+            { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
+            { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
+            { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
+          ].map((member, index) => (
+            <div 
+              key={index} 
+              className={`transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+              style={{ transitionDelay: `${0.3 + (index * 0.05)}s` }}
+            >
+              <TeamMember 
+                image={member.image || "placeholder.png"}  // Placeholder if missing
+                name={member.name} 
+                role={member.role}
+              />
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </section>
