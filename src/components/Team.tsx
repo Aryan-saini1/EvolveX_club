@@ -104,7 +104,7 @@ const Team = () => {
               { image: "sashidhar.jpeg", name: "Sashidhar", role: "Developer", fallback: true },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Content Creator" },
               { image: "Sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member", fallback: true },
-              { image: "bhanu.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
+              { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Technical Member", fallback: true }
             ].map((member, index) => (
               <div 
                 key={index} 
