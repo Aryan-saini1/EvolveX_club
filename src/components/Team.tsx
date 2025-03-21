@@ -20,26 +20,26 @@ const TeamMember = ({
   return (
     <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''} ${isLeader ? 'w-full flex justify-center' : ''}`}>
       <div className={`${isStaff ? 'w-72 md:w-80' : ''} ${isLeader ? 'w-56 md:w-64' : ''}`}>
-      <div className="relative group">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
-        <div className="glass-card rounded-xl p-1 relative">
-          <div className="bg-gray-900/80 rounded-lg overflow-hidden">
-          <img 
-            src={getAssetPath(image)}
-            alt={name} 
-            className="w-40 h-40 md:w-44 md:h-44 object-cover object-center transition-transform duration-300 hover:scale-125 mx-auto"
-            onError={(e) => {
-              setImageError(true);
-              e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
-            }}
-          />
-          </div>
-          <div className="p-4 text-center">
-            <h3 className="font-bold text-xl text-white">{name}</h3>
-            <p className="text-red-400">{role}</p>
+        <div className="relative group">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
+          <div className="glass-card rounded-xl p-1 relative">
+            <div className="bg-gray-900/80 rounded-lg overflow-hidden">
+              <img 
+                src={getAssetPath(image)}
+                alt={name} 
+                className="w-40 h-40 md:w-44 md:h-44 object-cover object-center transition-transform duration-300 hover:scale-125 mx-auto"
+                onError={(e) => {
+                  setImageError(true);
+                  e.currentTarget.src = `https://via.placeholder.com/200/111/333?text=${name.split(' ').join('+')}`;
+                }}
+              />
+            </div>
+            <div className="p-4 text-center">
+              <h3 className="font-bold text-xl text-white">{name}</h3>
+              <p className="text-red-400">{role}</p>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );
@@ -57,12 +57,12 @@ const Team = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const teamSectionVisible = scrollY > 300; // Reduced to make it visible earlier
+  const teamSectionVisible = scrollY > 200; // Reduced to make it visible earlier
   
   return (
-    <section id="team" className="py-16 relative">
+    <section id="team" className="py-12 relative">
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-12 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-8 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl font-bold mb-2">
             <span className="text-gradient">Our</span> Team
           </h2>
@@ -72,7 +72,7 @@ const Team = () => {
           </p>
         </div>
         
-        <div className={`mb-10 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
+        <div className={`mb-8 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
           <h3 className="text-2xl font-semibold mb-6 text-center text-white">Faculty Advisors</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <TeamMember 
@@ -108,35 +108,35 @@ const Team = () => {
             </div>
           </div>
           
-          {/* Team members in a single line */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
-          {[
-            { image: "vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
-            { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
-            { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
-            { image: "deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
-            { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
-            { image: "prajwal.jpeg", name: "Prajwal G", role: "Core Member" },
-            { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
-            { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-            { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member" },
-            { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
-            { image: "sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
-            { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
-          ].map((member, index) => (
-            <div 
-              key={index} 
-              className={`transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-              style={{ transitionDelay: `${0.3 + (index * 0.05)}s` }}
-            >
-              <TeamMember 
-                image={member.image || "placeholder.png"}  // Placeholder if missing
-                name={member.name} 
-                role={member.role}
-              />
-            </div>
-          ))}
-        </div>
+          {/* Core members in one row */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 lg:gap-6 place-items-center">
+            {[
+              { image: "vismaya.jpeg", name: "Vismaya S", role: "Core Member" },
+              { image: "anurag.jpeg", name: "Anurag Agarwal", role: "Core Member" },
+              { image: "ayush.jpeg", name: "Ayush Anand", role: "Core Member" },
+              { image: "deeta.jpeg", name: "Deeta Patil", role: "Core Member" },
+              { image: "kushi.jpeg", name: "Kushi S", role: "Core Member" },
+              { image: "prajwal.jpeg", name: "Prajwal G", role: "Core Member" },
+              { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
+              { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
+              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member" },
+              { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
+              { image: "sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
+              { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
+            ].map((member, index) => (
+              <div 
+                key={index} 
+                className={`transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ transitionDelay: `${0.3 + (index * 0.05)}s` }}
+              >
+                <TeamMember 
+                  image={member.image || "placeholder.png"}
+                  name={member.name} 
+                  role={member.role}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -52,7 +52,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-red-900/50 selection:text-white;
+    @apply border-[hsl(var(--border))] selection:bg-red-900/50 selection:text-white;
   }
 
   body {
@@ -306,18 +306,18 @@
   
   /* Ensure consistent spacing between sections */
   section {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16;
   }
   
   /* Fix for content overlap */
   .content-container {
-    @apply my-8 md:my-12 px-4 md:px-0;
+    @apply my-6 md:my-8 px-4 md:px-0;
   }
 
   /* Fix for desktop content spacing */
   @media (min-width: 768px) {
     section#home {
-      @apply min-h-screen flex items-center pt-20;
+      @apply min-h-[90vh] flex items-center pt-16;
     }
     
     .nav-glass {
