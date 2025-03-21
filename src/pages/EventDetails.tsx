@@ -392,8 +392,8 @@ const EventDetails = () => {
                         <li>Time: 9:00 AM - 6:00 PM</li>
                         <li>Venue: RNSIT Campus, Main Auditorium</li>
                         <li>Participation: Open to all RNSIT students</li>
-                        <li>Team Size: {Math.floor(Math.random() * 3) + 1}-{Math.floor(Math.random() * 2) + 3} members</li>
-                        <li>Registration Fee: ₹{Math.floor(Math.random() * 150) + 50} per team</li>
+                        <li>Team Size: 2-4 members</li>
+                        <li>Registration Fee: 200 per team</li>
                       </ul>
                     </div>
                     
@@ -407,9 +407,9 @@ const EventDetails = () => {
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">Prizes</h2>
                       <ul className="list-disc pl-5 text-gray-400 space-y-2">
-                        <li>1st Place: ₹{Math.floor(Math.random() * 5000) + 5000}</li>
-                        <li>2nd Place: ₹{Math.floor(Math.random() * 3000) + 2000}</li>
-                        <li>3rd Place: ₹{Math.floor(Math.random() * 1000) + 1000}</li>
+                        <li>1st Place: 2000</li>
+                        <li>2nd Place: 1000</li>
+                        <li>3rd Place: 500</li>
                         <li>Certificates for all participants</li>
                       </ul>
                     </div>
