@@ -119,9 +119,9 @@ const Team = () => {
               { image: "prajwal.jpeg", name: "Prajwal G", role: "Core Member" },
               { image: "souravi.jpeg", name: "Souravi Hegde", role: "Core Member" },
               { image: "likitha.jpeg", name: "Likitha M N", role: "Core Member" },
-              { image: "sashidhar.jpeg", name: "Sashidhar", role: "Core Member" },
+              { image: "shashidhar.jpeg", name: "N S Shashidhar", role: "Core Member" },
               { image: "aastha.jpeg", name: "Aastha Agrawal", role: "Core Member" },
-              { image: "sanjana.jpeg", name: "Sanjana Venkatesh", role: "Core Member" },
+              { image: "sanjana.jpeg", name: "Sanjana V", role: "Core Member" },
               { image: "akshaya.jpeg", name: "Bhanu Akshaya", role: "Core Member" }
             ].map((member, index) => (
               <div 
