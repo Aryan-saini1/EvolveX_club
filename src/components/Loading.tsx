@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface LoadingProps {
   onLoadComplete: () => void;
@@ -8,7 +7,6 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
   const [progress, setProgress] = useState(0);
   const [lightningSparks, setLightningSparks] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     // Progress increment timer
@@ -24,59 +22,6 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
         return 100;
       });
     }, 60);
-
-    // Audio setup with automatic unmuting
-    const audioElement = new Audio('/gun_sound.mp3');
-    audioElement.volume = 0; // Start with volume at 0
-    audioRef.current = audioElement;
-    
-    // Play audio (needed to start loading it)
-    const playAudio = async () => {
-      try {
-        await audioElement.play();
-        
-        // Automatically increase volume after a short delay (750ms)
-        setTimeout(() => {
-          if (audioElement && !audioElement.paused) {
-            // Gradually increase volume
-            let vol = 0;
-            const fadeIn = setInterval(() => {
-              vol += 0.05;
-              if (vol >= 0.3) {
-                vol = 0.3;
-                clearInterval(fadeIn);
-              }
-              audioElement.volume = vol;
-            }, 50);
-          }
-        }, 750);
-      } catch (err) {
-        console.log('Audio playback prevented:', err);
-        
-        // Add event listener to try playing on user interaction
-        const tryPlayOnInteraction = () => {
-          audioElement.play().then(() => {
-            // Volume fade in
-            let vol = 0;
-            const fadeIn = setInterval(() => {
-              vol += 0.05;
-              if (vol >= 0.3) {
-                vol = 0.3;
-                clearInterval(fadeIn);
-              }
-              audioElement.volume = vol;
-            }, 50);
-            
-            // Remove the event listener once played
-            document.removeEventListener('click', tryPlayOnInteraction);
-          }).catch(e => console.log('Still prevented:', e));
-        };
-        
-        document.addEventListener('click', tryPlayOnInteraction);
-      }
-    };
-    
-    playAudio();
 
     // Lightning effect sequence - more intense strike
     const triggerLightning = () => {
@@ -104,9 +49,6 @@ const Loading: React.FC<LoadingProps> = ({ onLoadComplete }) => {
     return () => {
       clearInterval(intervalId);
       clearInterval(lightningIntervalId);
-      if (audioElement) {
-        audioElement.pause();
-      }
     };
   }, [onLoadComplete]);
 
