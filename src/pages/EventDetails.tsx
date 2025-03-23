@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -7,7 +6,7 @@ import Footer from '../components/Footer';
 import EventCard from '../components/events/EventCard';
 import { getAssetPath } from '../utils/path-utils';
 
-// Import the events data from our Events component
+// All events with individual details
 const techFestEvents = [
   {
     id: "trade-quest",
@@ -16,7 +15,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f",
     categories: ["Quiz", "Finance"],
     status: 'upcoming' as const,
-    details: "Participants will test their financial knowledge through a series of challenging questions and scenarios. You'll analyze market trends, make investment decisions, and compete to achieve the highest returns on your virtual portfolio."
+    details: "Participants will test their financial knowledge through a series of challenging questions and scenarios. You'll analyze market trends, make investment decisions, and compete to achieve the highest returns on your virtual portfolio.",
+    date: "April 12-13, 2025",
+    time: "9:00 AM - 6:00 PM",
+    venue: "RNSIT Campus, Main Auditorium",
+    teamSize: "2-4 members",
+    registrationFee: "300 per team",
+    prizes: ["1st Place: 4000", "2nd Place: 1000", "3rd Place: 500", "Certificates for all participants"],
+    contact: { email: "tradequest@rnsit.ac.in", phone: "+91 98765 43210" }
   },
   {
     id: "pitching",
@@ -25,7 +31,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
     categories: ["Presentation", "Innovation"],
     status: 'upcoming' as const,
-    details: "Channel your inner entrepreneur in this Shark Tank-style competition. Present your innovative ideas to our panel of judges, answer tough questions, and compete for potential funding and mentorship opportunities."
+    details: "Channel your inner entrepreneur in this Shark Tank-style competition. Present your innovative ideas to our panel of judges, answer tough questions, and compete for potential funding and mentorship opportunities.",
+    date: "April 12-13, 2025",
+    time: "10:00 AM - 5:00 PM",
+    venue: "RNSIT Campus, Conference Hall",
+    teamSize: "Solo or team (up to 3)",
+    registrationFee: "150 per team",
+    prizes: ["1st Place: 2500", "2nd Place: 1500", "Certificates for all participants"],
+    contact: { email: "pitching@rnsit.ac.in", phone: "+91 98765 43211" }
   },
   {
     id: "gaming",
@@ -34,7 +47,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e",
     categories: ["Gaming", "Competition"],
     status: 'upcoming' as const,
-    details: "Battle it out in multiple game categories including FPS, MOBA, and racing simulations. Both casual and competitive gamers are welcome to join this thrilling tournament with exciting prizes for the winners."
+    details: "Battle it out in multiple game categories including FPS, MOBA, and racing simulations. Both casual and competitive gamers are welcome to join this thrilling tournament with exciting prizes for the winners.",
+    date: "April 12-13, 2025",
+    time: "11:00 AM - 6:00 PM",
+    venue: "RNSIT Campus, Gaming Arena",
+    teamSize: "Varies by game",
+    registrationFee: "100 per participant",
+    prizes: ["1st Place: 3000", "2nd Place: 1500", "3rd Place: 700"],
+    contact: { email: "gaming@rnsit.ac.in", phone: "+91 98765 43212" }
   },
   {
     id: "photo-edit",
@@ -43,7 +63,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1552168324-d612d77725e3",
     categories: ["Creative", "Social Media"],
     status: 'upcoming' as const,
-    details: "Capture and edit compelling images under specified themes and constraints. Your work will be showcased on our Instagram page, and winners will be determined based on audience engagement and expert evaluation."
+    details: "Capture and edit compelling images under specified themes and constraints. Your work will be showcased on our Instagram page, and winners will be determined based on audience engagement and expert evaluation.",
+    date: "April 12-13, 2025",
+    time: "9:30 AM - 5:30 PM",
+    venue: "RNSIT Campus, Art Studio",
+    teamSize: "Individual",
+    registrationFee: "50 per participant",
+    prizes: ["1st Place: 1500", "2nd Place: 800", "3rd Place: 400"],
+    contact: { email: "photoedit@rnsit.ac.in", phone: "+91 98765 43213" }
   },
   {
     id: "crime-scene",
@@ -52,7 +79,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8",
     categories: ["Investigation", "Problem Solving"],
     status: 'upcoming' as const,
-    details: "Analyze evidence, interview witnesses, and piece together clues to solve a complex technical mystery. This immersive experience will test your analytical thinking, attention to detail, and teamwork skills."
+    details: "Analyze evidence, interview witnesses, and piece together clues to solve a complex technical mystery. This immersive experience will test your analytical thinking, attention to detail, and teamwork skills.",
+    date: "April 12-13, 2025",
+    time: "10:00 AM - 6:00 PM",
+    venue: "RNSIT Campus, Crime Lab",
+    teamSize: "Teams of 4",
+    registrationFee: "250 per team",
+    prizes: ["1st Place: 3000", "2nd Place: 1500"],
+    contact: { email: "crimescene@rnsit.ac.in", phone: "+91 98765 43214" }
   },
   {
     id: "typing-contest",
@@ -61,7 +95,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
     categories: ["Speed", "Skill"],
     status: 'upcoming' as const,
-    details: "Compete for the title of fastest typist through multiple rounds of increasing difficulty. Test your WPM, accuracy, and adaptability with standard, code, and even reverse typing challenges."
+    details: "Compete for the title of fastest typist through multiple rounds of increasing difficulty. Test your WPM, accuracy, and adaptability with standard, code, and even reverse typing challenges.",
+    date: "April 12-13, 2025",
+    time: "9:30 AM - 4:30 PM",
+    venue: "RNSIT Campus, Computer Lab",
+    teamSize: "Individual",
+    registrationFee: "Free",
+    prizes: ["Winner: 2000", "Runner-up: 1000"],
+    contact: { email: "typing@rnsit.ac.in", phone: "+91 98765 43215" }
   },
   {
     id: "programming-relay",
@@ -70,7 +111,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     categories: ["Coding", "Team Event"],
     status: 'upcoming' as const,
-    details: "Work as a team to solve complex programming challenges in relay format. Each member will have limited time to understand, modify, and extend code before passing it to the next teammate without direct communication."
+    details: "Work as a team to solve complex programming challenges in relay format. Each member will have limited time to understand, modify, and extend code before passing it to the next teammate without direct communication.",
+    date: "April 12-13, 2025",
+    time: "10:00 AM - 6:00 PM",
+    venue: "RNSIT Campus, Coding Zone",
+    teamSize: "Teams of 3-5",
+    registrationFee: "250 per team",
+    prizes: ["1st Place: 3500", "2nd Place: 1750", "3rd Place: 900"],
+    contact: { email: "relay@rnsit.ac.in", phone: "+91 98765 43216" }
   },
   {
     id: "bounty-bug",
@@ -79,7 +127,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1563207153-f403bf289096",
     categories: ["Security", "Debug"],
     status: 'upcoming' as const,
-    details: "Channel your inner cybersecurity expert as you identify and exploit vulnerabilities in provided software. Earn bounties based on the severity and creativity of your discoveries."
+    details: "Channel your inner cybersecurity expert as you identify and exploit vulnerabilities in provided software. Earn bounties based on the severity and creativity of your discoveries.",
+    date: "April 12-13, 2025",
+    time: "11:00 AM - 5:00 PM",
+    venue: "RNSIT Campus, Cyber Lab",
+    teamSize: "Individual or Teams",
+    registrationFee: "300 per team",
+    prizes: ["Highest Bounty: 5000", "Runner-up: 2500"],
+    contact: { email: "bountybug@rnsit.ac.in", phone: "+91 98765 43217" }
   },
   {
     id: "tech-debate",
@@ -88,7 +143,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1521798552670-3130579c8c86",
     categories: ["Debate", "Discussion"],
     status: 'upcoming' as const,
-    details: "Present compelling arguments on divisive technology topics such as AI ethics, cryptocurrency adoption, digital privacy, and more. Develop your public speaking skills while engaging with current tech controversies."
+    details: "Present compelling arguments on divisive technology topics such as AI ethics, cryptocurrency adoption, digital privacy, and more. Develop your public speaking skills while engaging with current tech controversies.",
+    date: "April 12-13, 2025",
+    time: "2:00 PM - 4:00 PM",
+    venue: "RNSIT Campus, Auditorium",
+    teamSize: "Individual",
+    registrationFee: "Free",
+    prizes: ["Winner: 1500", "Runner-up: 750"],
+    contact: { email: "debate@rnsit.ac.in", phone: "+91 98765 43218" }
   },
   {
     id: "capture-flag",
@@ -97,9 +159,15 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
     categories: ["Puzzle", "Challenge"],
     status: 'upcoming' as const,
-    details: "Navigate through a series of technical puzzles, cryptography challenges, and hidden clues to capture the virtual flag before your opponents. Test your problem-solving skills in this timed competition."
+    details: "Navigate through a series of technical puzzles, cryptography challenges, and hidden clues to capture the virtual flag before your opponents. Test your problem-solving skills in this timed competition.",
+    date: "April 12-13, 2025",
+    time: "12:00 PM - 6:00 PM",
+    venue: "RNSIT Campus, Puzzle Zone",
+    teamSize: "Teams of 2-4",
+    registrationFee: "150 per team",
+    prizes: ["1st Place: 2000", "2nd Place: 1000", "3rd Place: 500"],
+    contact: { email: "captureflag@rnsit.ac.in", phone: "+91 98765 43219" }
   },
-  // Additional gaming events
   {
     id: "vr-challenge",
     name: "VR Gaming Challenge",
@@ -107,7 +175,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac",
     categories: ["Gaming", "VR"],
     status: 'upcoming' as const,
-    details: "Immerse yourself in stunning virtual worlds and compete in various VR games testing your reflexes, spatial awareness, and adaptability. No prior VR experience required!"
+    details: "Immerse yourself in stunning virtual worlds and compete in various VR games testing your reflexes, spatial awareness, and adaptability. No prior VR experience required!",
+    date: "April 12-13, 2025",
+    time: "1:00 PM - 6:00 PM",
+    venue: "RNSIT Campus, VR Zone",
+    teamSize: "Individual",
+    registrationFee: "200 per participant",
+    prizes: ["Winner: 2500", "Runner-up: 1250"],
+    contact: { email: "vrchallenge@rnsit.ac.in", phone: "+91 98765 43220" }
   },
   {
     id: "esports-tournament",
@@ -116,7 +191,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1542751110-97427bbecf20",
     categories: ["Gaming", "eSports"],
     status: 'upcoming' as const,
-    details: "Join our collegiate eSports tournament featuring popular competitive games. Form your team and battle for glory, prizes, and the chance to represent RNSIT in inter-college competitions."
+    details: "Join our collegiate eSports tournament featuring popular competitive games. Form your team and battle for glory, prizes, and the chance to represent RNSIT in inter-college competitions.",
+    date: "April 12-13, 2025",
+    time: "2:00 PM - 7:00 PM",
+    venue: "RNSIT Campus, eSports Arena",
+    teamSize: "Teams of 5",
+    registrationFee: "300 per team",
+    prizes: ["1st Place: 4000", "2nd Place: 2000", "3rd Place: 1000"],
+    contact: { email: "esports@rnsit.ac.in", phone: "+91 98765 43221" }
   },
   {
     id: "retro-gaming",
@@ -125,7 +207,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f",
     categories: ["Gaming", "Retro"],
     status: 'upcoming' as const,
-    details: "Travel back in time with classics like Pac-Man, Space Invaders, and Super Mario Bros. Compete for high scores on original hardware and experience the games that started it all."
+    details: "Travel back in time with classics like Pac-Man, Space Invaders, and Super Mario Bros. Compete for high scores on original hardware and experience the games that started it all.",
+    date: "April 12-13, 2025",
+    time: "10:00 AM - 5:00 PM",
+    venue: "RNSIT Campus, Retro Arcade",
+    teamSize: "Individual or Teams",
+    registrationFee: "100 per participant",
+    prizes: ["Winner: 2000", "Runner-up: 1000"],
+    contact: { email: "retro@rnsit.ac.in", phone: "+91 98765 43222" }
   },
   {
     id: "game-development",
@@ -134,7 +223,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1558655146-d09347e92766",
     categories: ["Gaming", "Development"],
     status: 'upcoming' as const,
-    details: "Put your game development skills to the test in this intense 48-hour challenge. Create a game based on a surprise theme using any engine or framework of your choice. Both beginners and experienced developers welcome!"
+    details: "Put your game development skills to the test in this intense 48-hour challenge. Create a game based on a surprise theme using any engine or framework of your choice. Both beginners and experienced developers welcome!",
+    date: "April 12-13, 2025",
+    time: "All Day",
+    venue: "RNSIT Campus, Innovation Lab",
+    teamSize: "Teams of 2-4",
+    registrationFee: "350 per team",
+    prizes: ["1st Place: 5000", "2nd Place: 2500", "3rd Place: 1200"],
+    contact: { email: "gamedev@rnsit.ac.in", phone: "+91 98765 43223" }
   },
   {
     id: "mobile-gaming",
@@ -143,7 +239,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1609146568317-95261927f5c3",
     categories: ["Gaming", "Mobile"],
     status: 'upcoming' as const,
-    details: "Showcase your skills in a variety of mobile games across different genres. Bring your own device and compete in 1v1 and team-based competitions for exciting prizes."
+    details: "Showcase your skills in a variety of mobile games across different genres. Bring your own device and compete in 1v1 and team-based competitions for exciting prizes.",
+    date: "April 12-13, 2025",
+    time: "3:00 PM - 7:00 PM",
+    venue: "RNSIT Campus, Mobile Zone",
+    teamSize: "Individual or Teams",
+    registrationFee: "150 per participant",
+    prizes: ["1st Place: 3000", "2nd Place: 1500", "3rd Place: 800"],
+    contact: { email: "mobilegaming@rnsit.ac.in", phone: "+91 98765 43224" }
   },
   {
     id: "hackathon",
@@ -152,7 +255,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0",
     categories: ["Hackathon", "Creative"],
     status: 'upcoming' as const,
-    details: "Combine your programming skills with detective thinking to build innovative solutions for fictional crime scenarios. This unique hackathon challenges you to use technology creatively in solving complex mysteries."
+    details: "Combine your programming skills with detective thinking to build innovative solutions for fictional crime scenarios. This unique hackathon challenges you to use technology creatively in solving complex mysteries.",
+    date: "April 12-13, 2025",
+    time: "9:00 AM - 6:00 PM",
+    venue: "RNSIT Campus, Innovation Hall",
+    teamSize: "Teams of 3-5",
+    registrationFee: "400 per team",
+    prizes: ["1st Place: 6000", "2nd Place: 3000", "3rd Place: 1500"],
+    contact: { email: "hackathon@rnsit.ac.in", phone: "+91 98765 43225" }
   },
   {
     id: "tech-memes",
@@ -161,7 +271,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1517242027094-631f8c218a0f",
     categories: ["Creative", "Humor"],
     status: 'upcoming' as const,
-    details: "Channel your humor and creativity to produce tech-related memes that will make even the most serious engineers laugh. Submissions will be judged on originality, humor, and relevance to current tech trends."
+    details: "Channel your humor and creativity to produce tech-related memes that will make even the most serious engineers laugh. Submissions will be judged on originality, humor, and relevance to current tech trends.",
+    date: "April 12-13, 2025",
+    time: "All Day",
+    venue: "RNSIT Campus, Media Room",
+    teamSize: "Individual",
+    registrationFee: "Free",
+    prizes: ["Winner: 1000", "Runner-up: 500"],
+    contact: { email: "techmemes@rnsit.ac.in", phone: "+91 98765 43226" }
   },
   {
     id: "treasure-hunt",
@@ -170,7 +287,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec",
     categories: ["Adventure", "Problem Solving"],
     status: 'upcoming' as const,
-    details: "Embark on an adventure across the campus, using your technical knowledge to decipher clues, solve puzzles, and locate hidden treasures. Teamwork and diverse technical skills will be crucial to your success."
+    details: "Embark on an adventure across the campus, using your technical knowledge to decipher clues, solve puzzles, and locate hidden treasures. Teamwork and diverse technical skills will be crucial to your success.",
+    date: "April 12-13, 2025",
+    time: "10:00 AM - 5:00 PM",
+    venue: "RNSIT Campus, Outdoor Grounds",
+    teamSize: "Teams of 4-6",
+    registrationFee: "300 per team",
+    prizes: ["Winner: 3500", "Runner-up: 1750"],
+    contact: { email: "treasurehunt@rnsit.ac.in", phone: "+91 98765 43227" }
   },
   {
     id: "squid-game",
@@ -179,7 +303,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1635716897849-295987622bd9",
     categories: ["Challenge", "Elimination"],
     status: 'upcoming' as const,
-    details: "Face a series of increasingly difficult technical challenges inspired by the popular Squid Game series. Participants will be eliminated in each round until only the most skilled remain to claim the ultimate prize."
+    details: "Face a series of increasingly difficult technical challenges inspired by the popular Squid Game series. Participants will be eliminated in each round until only the most skilled remain to claim the ultimate prize.",
+    date: "April 12-13, 2025",
+    time: "12:00 PM - 6:00 PM",
+    venue: "RNSIT Campus, Challenge Arena",
+    teamSize: "Individual",
+    registrationFee: "Free",
+    prizes: ["Winner: 4000", "Runner-up: 2000"],
+    contact: { email: "squidgame@rnsit.ac.in", phone: "+91 98765 43228" }
   },
   {
     id: "mad-ads",
@@ -188,7 +319,14 @@ const techFestEvents = [
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
     categories: ["Creative", "Design"],
     status: 'upcoming' as const,
-    details: "Design and present creative advertisements for fictional or existing tech products. Showcase your marketing creativity, design skills, and persuasive presentation abilities in this fun challenge."
+    details: "Design and present creative advertisements for fictional or existing tech products. Showcase your marketing creativity, design skills, and persuasive presentation abilities in this fun challenge.",
+    date: "April 12-13, 2025",
+    time: "11:00 AM - 5:00 PM",
+    venue: "RNSIT Campus, Design Studio",
+    teamSize: "Teams of 2-3",
+    registrationFee: "250 per team",
+    prizes: ["1st Place: 3000", "2nd Place: 1500", "3rd Place: 800"],
+    contact: { email: "madads@rnsit.ac.in", phone: "+91 98765 43229" }
   }
 ];
 
@@ -368,10 +506,10 @@ const EventDetails = () => {
                   
                   <div className="flex flex-wrap gap-2 my-4">
                     <span className="px-3 py-1 text-sm rounded-full bg-red-900/30 text-red-200">
-                      April 12-13, 2025
+                      {selectedEvent.date}
                     </span>
                     <span className="px-3 py-1 text-sm rounded-full bg-red-900/30 text-red-200">
-                      TechFest 2025
+                      {selectedEvent.venue}
                     </span>
                     {selectedEvent.categories?.map((category: string, index: number) => (
                       <span key={index} className="px-3 py-1 text-sm rounded-full bg-red-900/30 text-red-200">
@@ -388,12 +526,12 @@ const EventDetails = () => {
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">Event Details</h2>
                       <ul className="list-disc pl-5 text-gray-400 space-y-2">
-                        <li>Date: April 12-13, 2025</li>
-                        <li>Time: 9:00 AM - 6:00 PM</li>
-                        <li>Venue: RNSIT Campus, Main Auditorium</li>
+                        <li>Date: {selectedEvent.date}</li>
+                        <li>Time: {selectedEvent.time}</li>
+                        <li>Venue: {selectedEvent.venue}</li>
                         <li>Participation: Open to all RNSIT students</li>
-                        <li>Team Size: 2-4 members</li>
-                        <li>Registration Fee: 200 per team</li>
+                        <li>Team Size: {selectedEvent.teamSize}</li>
+                        <li>Registration Fee: {selectedEvent.registrationFee}</li>
                       </ul>
                     </div>
                     
@@ -407,10 +545,9 @@ const EventDetails = () => {
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">Prizes</h2>
                       <ul className="list-disc pl-5 text-gray-400 space-y-2">
-                        <li>1st Place: 2000</li>
-                        <li>2nd Place: 1000</li>
-                        <li>3rd Place: 500</li>
-                        <li>Certificates for all participants</li>
+                        {selectedEvent.prizes?.map((prize: string, index: number) => (
+                          <li key={index}>{prize}</li>
+                        )) || <li>Prizes to be announced</li>}
                       </ul>
                     </div>
                     
@@ -431,7 +568,7 @@ const EventDetails = () => {
                     <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
                     <p className="text-gray-400">
                       For more information, please contact:<br />
-                      <a href="mailto:evolvex@rnsit.ac.in" className="text-red-400 hover:underline">evolvex@rnsit.ac.in</a> or call +91 98765 43210
+                      <a href={`mailto:${selectedEvent.contact.email}`} className="text-red-400 hover:underline">{selectedEvent.contact.email}</a> or call {selectedEvent.contact.phone}
                     </p>
                   </div>
                 </div>
