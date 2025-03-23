@@ -27,11 +27,11 @@ const EventCard = ({ id, name, description, image, categories, date, status, sho
           <div className={`${isTechFest ? 'h-64 md:h-72' : 'h-48 md:h-56'} bg-gray-900/80 rounded-t-lg overflow-hidden relative`}>
             {!imageError ? (
               <img 
-                src={getAssetPath(isTechFest ? "rns-campus.jpeg" : image)}  
+                src={getAssetPath(isTechFest ? "evolve.jpeg" : image)}  
                 alt={name} 
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                 onError={(e) => {
-                  console.log("Image failed to load:", isTechFest ? getAssetPath("rns-campus.jpeg") : image);
+                  console.log("Image failed to load:", isTechFest ? getAssetPath("evolve.jpeg") : image);
                   setImageError(true);
                   e.currentTarget.src = `https://via.placeholder.com/400x300/111/333?text=${name.split(' ').join('+')}`;
                 }}

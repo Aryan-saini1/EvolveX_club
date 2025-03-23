@@ -376,7 +376,7 @@ const EventDetails = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1 relative">
                 <img 
-                  src={getAssetPath("techfest-banner.jpg")} 
+                  src={getAssetPath("evolve.jpeg")} 
                   alt="TechFest 2025" 
                   className="w-full h-60 md:h-80 object-cover object-center rounded-t-xl hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
