@@ -324,7 +324,7 @@ const techFestEvents = [
     time: "11:00 AM - 5:00 PM",
     venue: "RNSIT Campus, Design Studio",
     teamSize: "Teams of 2-3",
-    registrationFee: "250 per team",
+    registrationFee: "200 per team",
     prizes: ["1st Place: 3000", "2nd Place: 1500", "3rd Place: 800"],
     contact: { email: "madads@rnsit.ac.in", phone: "+91 98765 43229" }
   }
