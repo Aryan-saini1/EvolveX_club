@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { getAssetPath } from '../utils/path-utils';
 
@@ -18,7 +17,7 @@ const TeamMember = ({
   const [imageError, setImageError] = useState(false);
   
   return (
-    <div className={`${isStaff ? 'md:col-span-2 flex justify-center' : ''} ${isLeader ? 'w-full flex justify-center' : ''}`}>
+    <div className={`${isStaff ? 'flex justify-center' : ''} ${isLeader ? 'w-full flex justify-center' : ''}`}>
       <div className={`${isStaff ? 'w-72 md:w-80' : ''} ${isLeader ? 'w-56 md:w-64' : ''}`}>
         <div className="relative group">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-50 group-hover:opacity-70 transition-all duration-300"></div>
@@ -74,7 +73,13 @@ const Team = () => {
         
         <div className={`mb-8 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
           <h3 className="text-2xl font-semibold mb-6 text-center text-white">Faculty Advisors</h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            <TeamMember 
+              image="soumya.jpg" 
+              name="Soumya" 
+              role="Faculty Coordinator" 
+              isStaff={true}
+            />
             <TeamMember 
               image="kavita.webp" 
               name="Dr. Kavitha C" 

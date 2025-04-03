@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { getAssetPath } from '../utils/path-utils';
 

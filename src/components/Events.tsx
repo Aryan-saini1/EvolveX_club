@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import EventCard from './events/EventCard';
@@ -17,11 +16,11 @@ interface Event {
 // TechFest 2025 is our main event
 const techFest = {
   id: "techfest-2025",
-  name: "TechFest 2025",
-  description: "EvolveX's inaugural two-day technical festival featuring competitions, workshops, and networking opportunities.",
-  image: getAssetPath("techfest-banner.jpg"),
-  date: "April 12-13, 2025",
-  categories: ["Festival", "Competition", "Workshops"],
+  name: "Cyberis",
+  description: "EvolveX's inaugural technical festival featuring competitions and networking opportunities.",
+  image: "cyberis.jpeg",
+  date: "April 7-9, 2025",
+  categories: ["Festival", "Competition"],
   status: 'upcoming' as const
 };
 

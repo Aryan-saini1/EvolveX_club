@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { getAssetPath } from '../utils/path-utils';
 

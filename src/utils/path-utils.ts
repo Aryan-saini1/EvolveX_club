@@ -1,4 +1,3 @@
-
 /**
  * Utility function to ensure paths are relative to the base URL
  */
@@ -34,10 +33,11 @@ export const getAssetPath = (assetPath: string): string => {
     if (window.location.pathname.includes('/EvolveX_club/')) {
       // If image path doesn't include the base path, add it
       if (!cleanPath.includes(basePath) && !cleanPath.startsWith(basePath.substring(1))) {
-        return `${cleanPath}`;
+        return `${basePath}${cleanPath}`;
       }
     }
   }
   
-  return cleanPath;
+  // For development environment or if no special handling needed
+  return `/${cleanPath}`;
 };

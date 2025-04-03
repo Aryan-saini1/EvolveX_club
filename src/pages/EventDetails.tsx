@@ -20,8 +20,8 @@ const techFestEvents = [
 • Round 3: Bingo – Teams strike out coding-related words from a Bingo card.
 • Final Round: Solve coding problems at five junctions to capture all flags.`,
     teamSize: "2 members per team",
-    registrationFee: "₹200 per team",
-    venue: "CSE Block",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["₹1,500"],
     contact: {}
   },
@@ -38,8 +38,8 @@ const techFestEvents = [
 • Round 2: Locate Clue #3 by solving a puzzle.
 • Round 3: Decode Clue #4 to find the key.`,
     teamSize: "3 members per team",
-    registrationFee: "₹150 per team",
-    venue: "CSE Block",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["₹1,000"],
     contact: {}
   },
@@ -56,8 +56,8 @@ const techFestEvents = [
 • Q&A: Followed by a 5-minute question and answer session.
 • Judging: Based on content quality, clarity, creativity, and confidence.`,
     teamSize: "2-3 members per team",
-    registrationFee: "Rs.90 per team",
-    venue: "Mini Auditorium",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.800"],
     contact: {}
   },
@@ -74,8 +74,8 @@ const techFestEvents = [
 • Pitch: A 5-minute presentation to the judges.
 • Judging: Based on creativity, concept, execution, and teamwork.`,
     teamSize: "4-5 members per team",
-    registrationFee: "Rs.150 per team",
-    venue: "Seminar Hall",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.1000"],
     contact: {}
   },
@@ -90,8 +90,8 @@ const techFestEvents = [
 • Round 1: Trade Quiz – Answer questions on stock markets and trading strategies.
 • Round 2: Virtual Stock Market Challenge – Invest a virtual capital of ₹10,000.`,
     teamSize: "2 per team",
-    registrationFee: "Rs.60 per team",
-    venue: "Edusat Hall",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.800"],
     contact: {}
   },
@@ -107,8 +107,8 @@ const techFestEvents = [
 • Presentation: A 2-minute pitch to explain the concept.
 • Judging: Based on creativity, clarity, and visual appeal.`,
     teamSize: "3",
-    registrationFee: "Rs.120 per team",
-    venue: "Seminar Hall",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.800"],
     contact: {}
   },
@@ -123,8 +123,8 @@ const techFestEvents = [
 • Speech Duration: 3 to 5 minutes per participant.
 • Judging: Based on content, clarity, confidence, pronunciation, and grammar.`,
     teamSize: "Individual",
-    registrationFee: "Rs.30",
-    venue: "Seminar Hall",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.700"],
     contact: {}
   },
@@ -141,8 +141,8 @@ const techFestEvents = [
 • Final Theories: Present your findings.
 • Reveal: Uncover the truth behind Professor Jonathan Reed's murder.`,
     teamSize: "4 members per team",
-    registrationFee: "₹120 per team",
-    venue: "CSE Block (Classroom/Office Setup)",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Rs.800"],
     contact: {}
   },
@@ -159,44 +159,9 @@ const techFestEvents = [
 • Final Round: A 20-minute debate with a side swap after 10 minutes.
 • Judging: Based on argument strength, clarity, technical knowledge, and stage presence.`,
     teamSize: "3-4 members per team",
-    registrationFee: "₹120 per team",
-    venue: "Mini Auditorium",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["Winner: ₹1111 + Certificate", "Runner-Up: Certificate", "Best Speaker Award: ₹80"],
-    contact: {}
-  },
-  {
-    id: "cup-pyramid",
-    name: "Cup Pyramid Competition",
-    description: "Stack cups into a pyramid as quickly as possible.",
-    image: "cup_pyramid.jpeg",
-    categories: ["Speed", "Skill"],
-    status: 'upcoming' as const,
-    details: `Rules:
-• Participants receive a pre-decided number of cups (15 or 21).
-• The goal is to stack them into a stable pyramid.
-• If the pyramid collapses, the participant must restart.`,
-    teamSize: "Individual",
-    registrationFee: "₹30 per person",
-    venue: "To Be Announced",
-    prizes: ["₹200"],
-    contact: {}
-  },
-  {
-    id: "typing-speed",
-    name: "Typing Speed Competition",
-    description: "Test your typing speed and accuracy across multiple challenging rounds.",
-    image: "speed.jpeg",
-    categories: ["Speed", "Skill"],
-    status: 'upcoming' as const,
-    details: `Competition Format:
-• Round 1: Type a given paragraph; time is recorded.
-• Round 2: Blindfolded typing of a paragraph read aloud.
-• Round 3: An online typing test.
-• Additional Round: Tie-breaker if required.`,
-    teamSize: "Individual",
-    registrationFee: "₹30 per person",
-    venue: "To Be Announced",
-    prizes: ["₹200"],
     contact: {}
   },
   {
@@ -211,164 +176,171 @@ const techFestEvents = [
 • Submission: Provide a JPEG/PNG image along with a short description.
 • Judging: Based on creativity, explanation, and relevance to the chosen theme.`,
     teamSize: "Individual",
-    registrationFee: "₹20 per person",
-    venue: "To Be Announced",
+    registrationFee: "Free",
+    venue: "CSE Department",
     prizes: ["₹200"],
     contact: {}
   },
   {
-    id: "squid-game",
-    name: "Squid Game Challenge",
-    description: "Compete in a series of strategic and physical challenges inspired by Squid Game.",
+    id: "squid-games",
+    name: "SQUID GAMES",
+    description: "A high-stakes challenge inspired by Squid Game, where teams compete in fast-paced games while navigating obstacles with their legs tied together. The fastest team or the one with the most points wins.",
     image: "squid_game.jpeg",
-    categories: ["Strategy", "Team"],
+    categories: ["Adventure", "Team"],
     status: 'upcoming' as const,
-    details: `Challenge Rounds:
-• Target Aiming: Hit a target using small objects.
-• Hopscotch: Navigate a grid while avoiding traps.
-• Bottle Flip: Successfully land a bottle flip.
-• Final Challenge: Spin a wheel to receive the ultimate task.`,
-    teamSize: "2 members per team",
-    registrationFee: "₹100 per team",
+    details: `Rules & Event Structure:
+• Teams must complete a series of physical and strategic challenges while staying tied together.
+• Each round presents a unique obstacle testing aim, balance, coordination, and teamwork.
+• Failing a challenge may result in a penalty or restart.
+• The final round introduces a surprise challenge that determines the ultimate winner.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "3 members",
+    registrationFee: "Free",
     venue: "Basketball Court",
-    prizes: ["₹1000"],
-    contact: {}
+    date: "April 9, 2025",
+    time: "10:00 AM - 11:00 AM",
+    prizes: ["1st: ₹500", "2nd: ₹300"],
+    contact: {
+      "Kushi": "9808851818",
+      "Ayush": "8088936082"
+    }
   },
   {
-    id: "rizzlerbyte",
-    name: "RizzlerByte: Tech Memes with Sauce",
-    description: "Create a tech meme within 45 minutes using an allotted template.",
-    image: "meme.jpeg",
-    categories: ["Meme", "Creative"],
-    status: 'upcoming' as const,
-    details: `Event Details:
-• Duration: 45 minutes to design a tech meme.
-• Submission: Final meme will be posted on the official Instagram.
-• Judging: Based on likes and creativity.`,
-    teamSize: "2-3 members",
-    registrationFee: "₹80 per team",
-    venue: "To Be Announced",
-    prizes: ["Some Gift"],
-    contact: {}
-  },
-  {
-    id: "binge-trivia",
-    name: "Binge Watches Trivia",
-    description: "A trivia contest based on Netflix shows and movies.",
+    id: "binge-watch-trivia",
+    name: "BINGE WATCH TRIVIA",
+    description: "A fun and competitive trivia event where teams showcase their knowledge of Netflix shows and movies through a mix of questions, visual challenges, and interactive tasks. The teams with the highest scores will win exciting prizes.",
     image: "trivia.jpeg",
-    categories: ["Trivia", "Entertainment"],
+    categories: ["Entertainment", "Quiz"],
     status: 'upcoming' as const,
-    details: `Competition Format:
-• Round 1: Pen & Paper multiple choice questions.
-• Round 2: Audio/Visual round with iconic scenes.
-• Round 3: Dumb charades with Netflix shows or movies.`,
-    teamSize: "2 person team",
-    registrationFee: "₹200 per team",
-    venue: "To Be Announced",
-    prizes: ["Some Gift"],
-    contact: {}
+    details: `Rules & Event Structure:
+• Participants will be tested on their familiarity with Netflix content.
+• The competition will involve different formats, including Q&A and interactive elements.
+• The top teams will be awarded based on their performance.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "2 members",
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["Winner: ₹500"],
+    contact: {
+      "Sanjana": "7483817998",
+      "Kushi": "9808851818"
+    }
   },
   {
-    id: "bgmi-tournament",
-    name: "BGMI Tournament",
-    description: "Battle it out in a BGMI tournament across three classic mode matches.",
+    id: "bgmi",
+    name: "BGMI",
+    description: "An action-packed Battlegrounds Mobile India (BGMI) tournament where teams compete in intense Classic Mode qualifiers, with the Top 5 advancing to the TDM Finals to battle for the championship.",
     image: "bgmi.jpeg",
     categories: ["Gaming", "Esports"],
     status: 'upcoming' as const,
-    details: `Tournament Format:
-• Three rounds of Classic Mode matches.
-• Points awarded for placements and kills.
-• Tie-breaker based on total kills and final match performance.`,
-    teamSize: "4 members per team",
-    registrationFee: "₹200 per team",
-    venue: "CSE Block",
-    prizes: ["₹4,000"],
-    contact: {}
+    details: `Rules & Event Structure:
+• Teams will compete in Classic Mode qualifiers, where performance is based on placement and eliminations.
+• The Top 5 teams will advance to the Finals, which will be played in TDM Mode.
+• In case of tie, ranking will be determined by total kills and final match placement.
+• The team with the most TDM wins in the Finals will be crowned the champion.
+• iPads are not allowed.
+• No emulators. PC players are strictly prohibited.
+• No hacks, cheats, or third-party software. Fair play only.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "4 members",
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["1st Place: ₹1000", "2nd Place: ₹600", "3rd Place: ₹400"],
+    contact: {
+      "Shashidhar": "7349850584",
+      "Aryan": "9610937743"
+    }
   },
   {
     id: "hackignite",
     name: "HackIgnite",
-    description: "A 3-hour hackathon where teams develop innovative solutions to a real-world problem.",
+    description: "A fast-paced hackathon where teams tackle a real-world problem, develop a solution within three hours, and pitch their ideas to a panel of judges.",
     image: "hackathon.jpeg",
     categories: ["Coding", "Hackathon"],
     status: 'upcoming' as const,
-    details: `Event Structure:
-• Problem Statement: Revealed at the start of the event.
-• Development: 3 hours to design and prototype a solution.
-• Pitching: Present your solution to a panel of judges.`,
-    teamSize: "3 members per team",
-    registrationFee: "₹200 per team",
-    venue: "CSE Block",
-    prizes: ["HackIgnite T-shirt + ₹1000"],
-    contact: {}
-  },
-  {
-    id: "valorant",
-    name: "VALORANT",
-    description: "Engage in intense knockout matches in VALORANT.",
-    image: "valo.jpeg",
-    categories: ["Gaming", "Esports"],
-    status: 'upcoming' as const,
-    details: `Tournament Details:
-• Format: Best-of-three rounds.
-• Knockout and full game formats during semis and finals.`,
-    teamSize: "5 members per team",
-    registrationFee: "₹200 per team",
-    venue: "CSE Block",
-    prizes: ["₹2000"],
-    contact: {}
-  },
-  {
-    id: "deadshot",
-    name: "DEADSHOT",
-    description: "A fun gaming event focused on team coordination and skill.",
-    image: "deadshot.jpeg",
-    categories: ["Gaming", "Esports"],
-    status: 'upcoming' as const,
-    details: `Rules:
-• Teams of 6 are divided into 3 pairs.
-• Within each pair, one uses the mouse while the other uses the keyboard.
-• Finals are conducted in a best-of-three format.`,
-    teamSize: "6 members per team",
-    registrationFee: "₹180 per team",
-    venue: "CSE Block",
-    prizes: ["₹2000"],
-    contact: {}
+    details: `Rules & Event Structure:
+• Teams will receive a problem statement at the start of the event.
+• They must brainstorm, design, and prototype a solution within the given time.
+• At the end of the event, each team will present their idea to the judges.
+• Judging criteria include innovation, feasibility, technical implementation, clarity, and impact.
+• In case of a tie, technical implementation and clarity of pitch will determine the winner.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "3 members",
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["Winner: ₹1500"],
+    contact: {
+      "Aryan": "9610937743",
+      "Deeta": "8431932905"
+    }
   },
   {
     id: "blog-writing",
     name: "BLOG WRITING",
-    description: "Express your creativity and analytical skills in a timed blog writing contest.",
+    description: "Express your thoughts, creativity, and analytical skills in the Blog Writing Competition! Participants will be given a topic on the spot and will have a set time to craft a well-structured and engaging blog.",
     image: "blog.jpeg",
     categories: ["Writing", "Creative"],
     status: 'upcoming' as const,
-    details: `Event Structure:
-• Topic Reveal: A topic is provided on the spot.
-• Writing Session: 1.5 hours to draft and finalize the blog.
-• Submission: Blogs must be submitted in a digital format.
-• Judging: Based on content quality, creativity, and structure.`,
+    details: `Rules & Event Structure:
+• Duration: 3 to 10 minutes.
+• Categories: Fiction, Sci-Fi, Thriller, Animation, Social Message, Documentary, Experimental, Tech-related.
+• Content must be appropriate; unethical content leads to disqualification.
+• Judging criteria: Story, creativity, technical execution, acting, direction, sound, theme relevance.
+• Team size: Individual or group (max 5 members).
+• Registrations are subject to availability. Limited slots only.`,
     teamSize: "Individual",
-    registrationFee: "₹50 per participant",
-    venue: "CSE Block",
-    prizes: ["₹800"],
-    contact: {}
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["1st Place: ₹300", "2nd Place: ₹100"],
+    contact: {
+      "Vismaya": "9902109551",
+      "Aastha": "9669900098"
+    }
   },
   {
-    id: "titan-challenge",
-    name: "TITAN CHALLENGE",
-    description: "A CrossFit event testing strength, endurance, and teamwork.",
-    image: "crossfit.jpeg",
-    categories: ["Fitness", "Competition"],
+    id: "short-film",
+    name: "Short Film Competition",
+    description: "A platform for aspiring filmmakers to showcase their storytelling skills through short films across various genres.",
+    image: "short_film.jpeg",
+    categories: ["Creative", "Competition"],
     status: 'upcoming' as const,
-    details: `Event Structure:
-• Challenge 1: AMRAP Inferno – Complete as many reps as possible in 10 minutes.
-• Challenge 2: Deadlift Gauntlet – Perform maximum repetitions in 90 seconds (choose weight category).
-• Challenge 3: Agility Blitz – Timed obstacle course with cone sprints, ladder drills, and burpees.`,
-    teamSize: "Individual",
-    registrationFee: "₹40 per person",
-    venue: "Gym/Basketball Court",
-    prizes: ["₹1000"],
-    contact: {}
+    details: `Rules:
+• Films must be between 3 to 10 minutes long.
+• Accepted categories: Fiction, Sci-Fi, Thriller, Animation, Social Message, Documentary, Experimental, and Tech-related.
+• Content must be appropriate and non-controversial. Inappropriate or unethical content will lead to disqualification.
+• Films will be judged based on story, creativity, technical execution, acting, direction, sound, and relevance to the theme.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "Individual or Group (Max 5 members)",
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["₹400"],
+    contact: {
+      "Vismaya": "9902109551",
+      "Aastha": "9669900098"
+    }
+  },
+  {
+    id: "valorant",
+    name: "VALORANT",
+    description: "Get ready to play the most heated among students which makes you give your full individual potential being a team. Every game is a knockout game.",
+    image: "valo.jpeg",
+    categories: ["Gaming", "Esports"],
+    status: 'upcoming' as const,
+    details: `Rules:
+• Full Unrated Mode Games.
+• Bring your own systems.
+• We will be providing monitors, WiFi and LAN cables will be provided if necessary.
+• No hacks, cheats, or third-party software. Fair play only.
+• All resolutions are allowed.
+• Registrations are subject to availability. Limited slots only.`,
+    teamSize: "5 members",
+    registrationFee: "Free",
+    venue: "CSE Department",
+    prizes: ["1st Place: ₹1250", "2nd Place: ₹750"],
+    contact: {
+      "Shashidhar": "7349850584",
+      "Aryan": "9610937743"
+    }
   }
 ];
 
@@ -416,42 +388,42 @@ const EventDetails = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur opacity-30"></div>
               <div className="glass-card rounded-2xl overflow-hidden p-1 relative">
                 <img 
-                  src={getAssetPath("evolve.jpeg")} 
-                  alt="TechFest 2025" 
+                  src={getAssetPath("cyberis.jpeg")} 
+                  alt="Cyberis" 
                   className="w-full h-60 md:h-80 object-cover object-center rounded-t-xl hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    e.currentTarget.src = `https://via.placeholder.com/1200x600/111/333?text=TechFest+2025`;
+                    e.currentTarget.src = `https://via.placeholder.com/1200x600/111/333?text=Cyberis`;
                   }}
                 />
                 <div className="p-6 md:p-8">
                   <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gradient">
-                    TechFest 2025
+                    Cyberis
                   </h1>
                   <div className="flex flex-wrap gap-2 my-4">
                     <span className="px-3 py-1 text-sm rounded-full bg-red-900/30 text-red-200">
-                      April 12-13, 2025
+                      April 7-9, 2025
                     </span>
                     <span className="px-3 py-1 text-sm rounded-full bg-red-900/30 text-red-200">
                       RNSIT Campus
                     </span>
                   </div>
                   <p className="text-gray-300 leading-relaxed mb-6">
-                    EvolveX presents our inaugural TechFest – a two-day celebration of innovation, technology, and creativity.
+                    EvolveX presents our inaugural Cyberis – a three-day celebration of innovation, technology, and creativity.
                   </p>
                   <div className="space-y-6 mb-8">
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">Event Details</h2>
                       <ul className="list-disc pl-5 text-gray-400 space-y-2">
-                        <li>Date: April 12-13, 2025</li>
+                        <li>Date: April 7-9, 2025</li>
                         <li>Time: 9:00 AM - 6:00 PM</li>
-                        <li>Venue: RNSIT Campus, Main Auditorium</li>
+                        <li>Venue: RNSIT Campus</li>
                         <li>Participation: Open to all RNSIT students</li>
                       </ul>
                     </div>
                     <div>
-                      <h2 className="text-xl font-semibold text-white mb-3">All TechFest Events</h2>
+                      <h2 className="text-xl font-semibold text-white mb-3">All Events</h2>
                       <p className="text-gray-400 mb-4">
-                        Explore our exciting lineup of events below. Click on any event to learn more and register!
+                        Explore our exciting lineup of events below. Click on any event to learn more!
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                         {techFestEvents.map((event, index) => {
@@ -473,23 +445,12 @@ const EventDetails = () => {
                       </div>
                     </div>
                     <div>
-                      <h2 className="text-xl font-semibold text-white mb-3">How to Register</h2>
-                      <p className="text-gray-400 mb-4">
-                        Registration is open until April 5th, 2025. Fill out the form below or contact the event coordinators for more information.
+                      <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
+                      <p className="text-gray-400">
+                        For more information, please contact:<br />
+                        <a href="mailto:evolvex@rnsit.ac.in" className="text-red-400 hover:underline">evolvex@rnsit.ac.in</a> or call +91 98765 43210
                       </p>
-                      <button 
-                        className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow"
-                      >
-                        Register Now
-                      </button>
                     </div>
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
-                    <p className="text-gray-400">
-                      For more information, please contact:<br />
-                      <a href="mailto:evolvex@rnsit.ac.in" className="text-red-400 hover:underline">evolvex@rnsit.ac.in</a> or call +91 98765 43210
-                    </p>
                   </div>
                 </div>
               </div>
@@ -571,13 +532,16 @@ const EventDetails = () => {
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">How to Register</h2>
                       <p className="text-gray-400 mb-4">
-                        Registration details and deadlines will be announced soon.
+                        Click the button below to register for this event.
                       </p>
-                      <button 
-                        className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow"
+                      <a 
+                        href={selectedEvent.registrationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow inline-block"
                       >
                         Register Now
-                      </button>
+                      </a>
                     </div>
                   </div>
                   <div>

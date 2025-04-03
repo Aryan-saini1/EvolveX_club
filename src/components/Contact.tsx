@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -42,7 +41,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Email</h4>
-                    <p className="text-gray-400">aryan.saini3001@gmail.com</p>
+                    <p className="text-gray-400">evolvexcse25@gmail.com</p>
                   </div>
                 </div>
                 
@@ -52,7 +51,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Phone</h4>
-                    <p className="text-gray-400">+91 8107819678</p>
+                    <p className="text-gray-400">+91 9610937743</p>
                   </div>
                 </div>
               </div>
@@ -68,18 +67,11 @@ const Contact = () => {
                     <Instagram className="h-5 w-5 text-white" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/" 
                     className="w-10 h-10 rounded-full bg-red-900/30 flex items-center justify-center hover:bg-red-700/50 transition-colors"
-                    aria-label="Facebook"
+                    aria-label="LinkedIn"
                   >
-                    <Facebook className="h-5 w-5 text-white" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="w-10 h-10 rounded-full bg-red-900/30 flex items-center justify-center hover:bg-red-700/50 transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="h-5 w-5 text-white" />
+                    <Linkedin className="h-5 w-5 text-white" />
                   </a>
                 </div>
               </div>

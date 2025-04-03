@@ -20,7 +20,7 @@ const About = () => {
               <div className="glass-card rounded-2xl overflow-hidden p-1">
                 {!imageError ? (
                   <img 
-                    src={getAssetPath("rns-campus.jpeg")} 
+                    src={getAssetPath("team_members.jpeg")} 
                     alt="RNSIT Campus" 
                     className="w-full h-auto rounded-xl"
                     onError={(e) => {
