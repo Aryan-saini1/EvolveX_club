@@ -60,15 +60,17 @@ const Contact = () => {
                 <h4 className="font-semibold text-white mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a 
-                    href="https://www.instagram.com/_nahipata._/" 
+                    href="https://www.instagram.com/evolvex_rnsit?igsh=aGd2bWU3amhieGpn" 
                     className="w-10 h-10 rounded-full bg-red-900/30 flex items-center justify-center hover:bg-red-700/50 transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-5 w-5 text-white" />
                   </a>
                   <a 
-                    href="https://www.linkedin.com/" 
+                    href="https://www.linkedin.com/company/evolve-x-rnsit" 
                     className="w-10 h-10 rounded-full bg-red-900/30 flex items-center justify-center hover:bg-red-700/50 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="h-5 w-5 text-white" />
