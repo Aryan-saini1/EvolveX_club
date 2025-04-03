@@ -1,29 +1,25 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVOLVE_X</title>
+    <meta charset="utf-8" />
+    <title>EvolveX Club</title>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
-      (function() {
-        // This works for GitHub Pages when using HashRouter
-        var segmentCount = 1; // First segment is the repo name (EvolveX_club)
-        var l = window.location;
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/#/' +
-          l.pathname.slice(1).split('/').slice(segmentCount).join('/') +
-          (l.search ? l.search : '') +
-          l.hash
-        );
-      })();
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     </script>
   </head>
   <body>
-    <div>Redirecting to the EvolveX Club homepage...</div>
+    Redirecting...
   </body>
 </html>
