@@ -67,7 +67,7 @@ const Team = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Meet the passionate minds behind EvolveX - dedicated faculty members and student leaders driving innovation and excellence.
+            Meet the passionate minds behind EvolveX - dedicated student leaders driving innovation and excellence.
           </p>
         </div>
         
