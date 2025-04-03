@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? "/EvolveX_club/" : "/",
+  base: "/EvolveX_club/",
   server: {
     host: "::",
     port: 8080,
@@ -22,28 +22,13 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
+    assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Ensure proper MIME types by setting explicit file extensions
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg|webp|ico)$/.test(name ?? '')) {
-            return 'assets/images/[name].[hash][extname]';
-          }
-          
-          if (/\.(woff|woff2|eot|ttf|otf)$/.test(name ?? '')) {
-            return 'assets/fonts/[name].[hash][extname]';
-          }
-          
-          if (/\.css$/.test(name ?? '')) {
-            return 'assets/styles/[name].[hash][extname]';
-          }
-          
-          return 'assets/[name].[hash][extname]';
-        }
+        entryFileNames: '[name].[hash].js',
+        chunkFileNames: '[name].[hash].js',
+        assetFileNames: '[name].[hash][extname]'
       }
     }
   }

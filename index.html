@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/EvolveX_club/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EvolveX Club</title>
+    <!-- Base path configuration -->
+    <base href="/EvolveX_club/" />
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License
@@ -19,6 +21,14 @@
           );
         }
       }(window.location))
+
+      // Handle base path for GitHub Pages
+      (function() {
+        const base = document.querySelector('base');
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          base.href = '/';
+        }
+      })();
     </script>
   </head>
   <body>
