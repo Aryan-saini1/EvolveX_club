@@ -1,10 +1,11 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '' : '/EvolveX_club/',
+  base: command === 'serve' ? '/' : '/EvolveX_club/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -23,10 +24,10 @@ export default defineConfig(({ command }) => ({
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             return `assets/img/[name][extname]`;
           }
-          return `assets/${extType}/[name][extname]`;
+          return `assets/${extType}/[name].[hash][extname]`;
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
+        chunkFileNames: 'assets/js/[name].[hash].js',
+        entryFileNames: 'assets/js/[name].[hash].js',
       },
     },
   },
