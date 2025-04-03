@@ -1,3 +1,4 @@
+
 /**
  * Utility function to ensure paths are relative to the base URL
  */
@@ -18,7 +19,5 @@ export const getRelativePath = (path: string): string => {
  * Utility function to get asset paths correctly
  */
 export const getAssetPath = (assetName: string): string => {
-  const isDevelopment = import.meta.env.DEV;
-  const basePath = isDevelopment ? '' : '/EvolveX_club';
-  return `${basePath}/assets/img/${assetName}`;
+  return `assets/img/${assetName}`;
 };
