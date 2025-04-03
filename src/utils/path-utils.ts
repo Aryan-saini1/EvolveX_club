@@ -17,27 +17,8 @@ export const getRelativePath = (path: string): string => {
 /**
  * Utility function to get asset paths correctly
  */
-export const getAssetPath = (assetPath: string): string => {
-  // If the asset path is already a URL (e.g., external resource)
-  if (assetPath.startsWith('http')) {
-    return assetPath;
-  }
-  
-  // Remove leading slash if present to ensure consistent paths
-  const cleanPath = assetPath.startsWith('/') ? assetPath.substring(1) : assetPath;
-  
-  // Handle image paths based on environment
-  if (import.meta.env.PROD) {
-    const basePath = "/EvolveX_club/";
-    // In GitHub Pages, we need to handle the base path appropriately
-    if (window.location.pathname.includes('/EvolveX_club/')) {
-      // If image path doesn't include the base path, add it
-      if (!cleanPath.includes(basePath) && !cleanPath.startsWith(basePath.substring(1))) {
-        return `${basePath}${cleanPath}`;
-      }
-    }
-  }
-  
-  // For development environment or if no special handling needed
-  return `/${cleanPath}`;
+export const getAssetPath = (assetName: string): string => {
+  const isDevelopment = import.meta.env.DEV;
+  const basePath = isDevelopment ? '' : '/EvolveX_club';
+  return `${basePath}/assets/img/${assetName}`;
 };
