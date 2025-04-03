@@ -1,37 +1,29 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/EvolveX_club/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EVOLVE_X</title>
-    <meta name="description" content="Evolving Beyond Limits - RNSIT's Premier Tech Club" />
-    <meta name="author" content="EvolveX" />
-    <meta property="og:image" content="./og-image.png" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <!-- Handle GitHub Pages base path -->
+    <title>EvolveX Club</title>
     <script type="text/javascript">
-      // Adjust paths for GitHub Pages deployment
-      (function() {
-        const isGitHubPages = window.location.hostname.includes('github.io') || 
-                             window.location.pathname.includes('/EvolveX_club/');
-        if (isGitHubPages && !window.location.pathname.endsWith('/EvolveX_club/')) {
-          const basePath = '/EvolveX_club/';
-          const currentPath = window.location.pathname;
-          if (!currentPath.includes(basePath) || currentPath.indexOf(basePath) !== 0) {
-            window.location.href = basePath;
-          }
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
-      })();
+      }(window.location))
     </script>
-    <script type="module" crossorigin src="/EvolveX_club/assets/index-BAeAVH3G.js"></script>
-    <link rel="stylesheet" crossorigin href="/EvolveX_club/assets/index-Det1BkNq.css">
+    <script type="module" crossorigin src="/EvolveX_club/assets/index.B5j5fXMq.js"></script>
+    <link rel="stylesheet" crossorigin href="/EvolveX_club/assets/styles/index.Det1BkNq.css">
   </head>
-
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
 </html>
