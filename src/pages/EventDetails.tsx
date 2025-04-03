@@ -101,7 +101,7 @@ const techFestEvents = [
 • Duration: 45 minutes to hand-draw a poster on a chosen tech theme.
 • Presentation: A 2-minute pitch to explain the concept.
 • Judging: Based on creativity, clarity, and visual appeal.`,
-    teamSize: "3",
+    teamSize: "3 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
     prizes: ["1st place:Rs.500","2nd place:Rs.300"],
@@ -172,10 +172,8 @@ const techFestEvents = [
     image: "photograph.jpeg",
     categories: ["Photography", "Creative"],
     status: 'upcoming' as const,
-    details: `Event Details:
-• Theme Selection: Choose from themes like Joy in Everyday Life, Reflections, or Textures of Life.
-• Submission: Provide a JPEG/PNG image along with a short description.
-• Judging: Based on creativity, explanation, and relevance to the chosen theme.`,
+    details: `Showcase your photography skills by capturing event moments and getting the
+most votes! The participant with the highest number of votes wins.`,
     teamSize: "Individual",
     registrationFee: "Free",
     venue: "CSE Department",
@@ -246,7 +244,7 @@ const techFestEvents = [
 • No emulators. PC players are strictly prohibited.
 • No hacks, cheats, or third-party software. Fair play only.
 • Registrations are subject to availability. Limited slots only.`,
-    teamSize: "4 members",
+    teamSize: "4 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
     prizes: ["1st Place: ₹1000", "2nd Place: ₹600", "3rd Place: ₹400"],
@@ -294,7 +292,7 @@ const techFestEvents = [
 • Judging criteria: Story, creativity, technical execution, acting, direction, sound, theme relevance.
 • Team size: Individual or group (max 5 members).
 • Registrations are subject to availability. Limited slots only.`,
-    teamSize: "Individual",
+    teamSize: "Individual or group(max 5)",
     registrationFee: "Free",
     venue: "CSE Department",
     prizes: ["Rs.350"],
