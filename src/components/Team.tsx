@@ -71,29 +71,7 @@ const Team = () => {
           </p>
         </div>
         
-        <div className={`mb-8 transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.1s' }}>
-          <h3 className="text-2xl font-semibold mb-6 text-center text-white">Faculty Advisors</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-            <TeamMember 
-              image="soumya.jpg" 
-              name="Soumya" 
-              role="Faculty Coordinator" 
-              isStaff={true}
-            />
-            <TeamMember 
-              image="kavita.webp" 
-              name="Dr. Kavitha C" 
-              role="Head of Department, CSE" 
-              isStaff={true}
-            />
-            <TeamMember 
-              image="sushmitha-s.webp" 
-              name="Dr. Sushmita S" 
-              role="Faculty Coordinator" 
-              isStaff={true}
-            />
-          </div>
-        </div>
+        
         
         <div>
           <h3 className={`text-2xl font-semibold mb-6 text-center text-white transition-all duration-700 transform ${teamSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>Student Leaders</h3>
