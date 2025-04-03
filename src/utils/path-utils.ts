@@ -19,5 +19,6 @@ export const getRelativePath = (path: string): string => {
  * Utility function to get asset paths correctly
  */
 export const getAssetPath = (assetName: string): string => {
-  return `assets/img/${assetName}`;
+  // Make sure we're using the correct path to public assets
+  return `/${assetName}`;
 };
