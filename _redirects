@@ -1,4 +1,4 @@
+
 # Redirect all routes to index.html with 200 status code
 # This ensures proper handling of client-side routing
 /* /index.html 200
-/EvolveX_club/* /EvolveX_club/index.html 200
