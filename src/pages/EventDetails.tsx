@@ -23,7 +23,10 @@ const techFestEvents = [
     registrationFee: "Free",
     venue: "CSE Department",
     prizes: ["₹1,500"],
-    contact: {}
+    contact: {"Aryan":"9610937743",
+      "Anurag":"7011228018",
+      "Aastha":"9669900096"},
+    registrationLink: "https://forms.gle/BMNecXBx7DnaTRFq6"
   },
   {
     id: "treasure-hunt",
@@ -40,8 +43,12 @@ const techFestEvents = [
     teamSize: "3 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["₹1,000"],
-    contact: {}
+    prizes: ["Rs.1,500"],
+    contact: {"Aryan": "9610937743",
+      "Kushi":"9606851816",
+      "Anurag":"7011228018"
+    },
+    registrationLink: "https://forms.gle/treasure-hunt-registration"
   },
   {
     id: "thinktank-pitch-battle",
@@ -58,8 +65,10 @@ const techFestEvents = [
     teamSize: "2-3 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Rs.800"],
-    contact: {}
+    prizes: ["1st place:500","2nd place:300"],
+    contact: {"Likitha":"9535416823" , 
+      "Vismaya":"9902109551"},
+    registrationLink: "https://forms.gle/pitch-battle-registration"
   },
   {
     id: "mad-ads",
@@ -76,24 +85,10 @@ const techFestEvents = [
     teamSize: "4-5 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Rs.1000"],
-    contact: {}
-  },
-  {
-    id: "trade-quest",
-    name: "Trade Quest",
-    description: "A two-round competition testing financial acumen with a quiz and a virtual stock market simulation.",
-    image: "trade.jpeg",
-    categories: ["Finance", "Quiz"],
-    status: 'upcoming' as const,
-    details: `Event Structure:
-• Round 1: Trade Quiz – Answer questions on stock markets and trading strategies.
-• Round 2: Virtual Stock Market Challenge – Invest a virtual capital of ₹10,000.`,
-    teamSize: "2 per team",
-    registrationFee: "Free",
-    venue: "CSE Department",
-    prizes: ["Rs.800"],
-    contact: {}
+    prizes: ["1st place:500","2nd place:300"],
+    contact: {"Aastha":"9669900096" , 
+      "Vismaya":"9902109551"},
+    registrationLink: "https://forms.gle/mad-ads-registration"
   },
   {
     id: "techsketch",
@@ -109,8 +104,10 @@ const techFestEvents = [
     teamSize: "3",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Rs.800"],
-    contact: {}
+    prizes: ["1st place:Rs.500","2nd place:Rs.300"],
+    contact: {"Vismaya":"9902109551" , 
+      "Akshaya":"9740333918"},
+    registrationLink: "https://forms.gle/techsketch-registration"
   },
   {
     id: "techtalks-elocution",
@@ -125,8 +122,9 @@ const techFestEvents = [
     teamSize: "Individual",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Rs.700"],
-    contact: {}
+    prizes: ["1st place:Rs.300","2nd place:Rs.100"],
+    contact: {"Akshaya":"9740333918"},
+    registrationLink: "https://forms.gle/techtalks-registration"
   },
   {
     id: "murder-mystery",
@@ -143,8 +141,9 @@ const techFestEvents = [
     teamSize: "4 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Rs.800"],
-    contact: {}
+    prizes: ["Rs.1000"],
+    contact: {"Deeta":"8431932905"},
+    registrationLink: "https://forms.gle/murder-mystery-registration"
   },
   {
     id: "tech-debate-zeal",
@@ -161,8 +160,10 @@ const techFestEvents = [
     teamSize: "3-4 members per team",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Winner: ₹1111 + Certificate", "Runner-Up: Certificate", "Best Speaker Award: ₹80"],
-    contact: {}
+    prizes: ["Winner: ₹1111 + Certificate", "Best Speaker Award: ₹111"],
+    contact: {"Prajwal":"8660450708", 
+      "Souravi":"9663639694"},
+    registrationLink: "https://forms.gle/tech-debate-registration"
   },
   {
     id: "photography-contest",
@@ -178,8 +179,9 @@ const techFestEvents = [
     teamSize: "Individual",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["₹200"],
-    contact: {}
+    prizes: ["₹300"],
+    contact: {"Souravi":"9663639694"},
+    registrationLink: "https://forms.gle/photography-registration"
   },
   {
     id: "squid-games",
@@ -199,11 +201,12 @@ const techFestEvents = [
     venue: "Basketball Court",
     date: "April 9, 2025",
     time: "10:00 AM - 11:00 AM",
-    prizes: ["1st: ₹500", "2nd: ₹300"],
+    prizes: ["1st: Rs.700", "2nd: Rs.300"],
     contact: {
       "Kushi": "9808851818",
       "Ayush": "8088936082"
-    }
+    },
+    registrationLink: "https://forms.gle/squid-games-registration"
   },
   {
     id: "binge-watch-trivia",
@@ -220,11 +223,12 @@ const techFestEvents = [
     teamSize: "2 members",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["Winner: ₹500"],
+    prizes: ["Winner: Rs.500"],
     contact: {
       "Sanjana": "7483817998",
       "Kushi": "9808851818"
-    }
+    },
+    registrationLink: "https://forms.gle/binge-watch-registration"
   },
   {
     id: "bgmi",
@@ -249,7 +253,8 @@ const techFestEvents = [
     contact: {
       "Shashidhar": "7349850584",
       "Aryan": "9610937743"
-    }
+    },
+    registrationLink: "https://forms.gle/bgmi-registration"
   },
   {
     id: "hackignite",
@@ -272,7 +277,8 @@ const techFestEvents = [
     contact: {
       "Aryan": "9610937743",
       "Deeta": "8431932905"
-    }
+    },
+    registrationLink: "https://forms.gle/hackignite-registration"
   },
   {
     id: "blog-writing",
@@ -291,17 +297,19 @@ const techFestEvents = [
     teamSize: "Individual",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["1st Place: ₹300", "2nd Place: ₹100"],
+    prizes: ["Rs.350"],
     contact: {
       "Vismaya": "9902109551",
-      "Aastha": "9669900098"
-    }
+      "Aastha": "9669900098",
+      "Anurag":"7011228018"
+    },
+    registrationLink: "https://forms.gle/blog-writing-registration"
   },
   {
     id: "short-film",
     name: "Short Film Competition",
     description: "A platform for aspiring filmmakers to showcase their storytelling skills through short films across various genres.",
-    image: "short_film.jpeg",
+    image: "short_film.jpg",
     categories: ["Creative", "Competition"],
     status: 'upcoming' as const,
     details: `Rules:
@@ -313,11 +321,12 @@ const techFestEvents = [
     teamSize: "Individual or Group (Max 5 members)",
     registrationFee: "Free",
     venue: "CSE Department",
-    prizes: ["₹400"],
+    prizes: ["Rs.400"],
     contact: {
       "Vismaya": "9902109551",
       "Aastha": "9669900098"
-    }
+    },
+    registrationLink: "https://forms.gle/short-film-registration"
   },
   {
     id: "valorant",
@@ -340,7 +349,8 @@ const techFestEvents = [
     contact: {
       "Shashidhar": "7349850584",
       "Aryan": "9610937743"
-    }
+    },
+    registrationLink: "https://forms.gle/valorant-registration"
   }
 ];
 
@@ -531,17 +541,73 @@ const EventDetails = () => {
                     </div>
                     <div>
                       <h2 className="text-xl font-semibold text-white mb-3">How to Register</h2>
-                      <p className="text-gray-400 mb-4">
-                        Click the button below to register for this event.
-                      </p>
-                      <a 
-                        href={selectedEvent.registrationLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="button-glow px-6 py-3 bg-gradient-to-r from-red-700 to-red-600 text-white rounded-lg font-medium animate-pulse-glow inline-block"
-                      >
-                        Register Now
-                      </a>
+                      <div className="glass-card bg-gradient-to-r from-red-900/20 to-red-800/20 p-6 rounded-lg border border-red-500/20 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-2xl"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-600/10 rounded-full blur-2xl"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                              <span className="text-xl">📱</span>
+                            </div>
+                            <h3 className="text-xl text-red-400 font-bold tracking-wide">Registration Process</h3>
+                          </div>
+                          
+                          <div className="space-y-4 ml-11">
+                            <div className="relative">
+                              <div className="h-full w-0.5 bg-gradient-to-b from-red-500 to-transparent absolute left-0 top-0"></div>
+                              <div className="pl-4">
+                                <p className="text-gray-200 font-medium mb-1 text-lg">Scan & Register</p>
+                                <p className="text-gray-400 leading-relaxed">
+                                  Find QR codes displayed on Cyberis posters across campus
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="relative">
+                              <div className="h-full w-0.5 bg-gradient-to-b from-red-500 to-transparent absolute left-0 top-0"></div>
+                              <div className="pl-4">
+                                <p className="text-gray-200 font-medium mb-1 text-lg">Brochure Access</p>
+                                <p className="text-gray-400 leading-relaxed">
+                                  Check your Cyberis brochure for exclusive registration QR codes
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="mt-6 bg-gradient-to-r from-red-500/10 to-red-900/10 p-4 rounded-lg border border-red-500/10">
+                            <div className="flex items-center gap-2">
+                              <span className="text-red-400 animate-pulse">⚡</span>
+                              <p className="text-red-300 font-medium">
+                                Limited slots available! Secure your spot early.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
+                      <div className="glass-card bg-gradient-to-r from-red-900/20 to-red-800/20 p-6 rounded-lg border border-red-500/20">
+                        <div className="space-y-3">
+                          {Object.entries(selectedEvent.contact).map(([name, phone]: [string, string], index: number) => (
+                            <div key={index} className="flex items-center gap-3">
+                              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-red-500/20 to-red-700/20 flex items-center justify-center">
+                                <span className="text-xl">👤</span>
+                              </div>
+                              <div>
+                                <p className="text-gray-200 font-medium">{name}</p>
+                                <a 
+                                  href={`tel:${phone}`} 
+                                  className="text-red-400 hover:text-red-300 transition-colors"
+                                >
+                                  +91 {phone}
+                                </a>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div>
