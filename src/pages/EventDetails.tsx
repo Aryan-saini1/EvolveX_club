@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -13,7 +14,7 @@ const techFestEvents = [
     description: "An exciting tech competition where teams tackle coding challenges, problem-solving tasks, and creative rounds to outsmart opponents.",
     image: "capture.jpeg",
     categories: ["Coding", "Puzzle", "Competition"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure & Rounds:
 • Round 1: Quiz – 20 multiple-choice questions testing coding proficiency and problem-solving.
 • Round 2: Image Generation – Teams generate an image based on a topic.
@@ -34,7 +35,7 @@ const techFestEvents = [
     description: "A thrilling adventure where teams use old-style maps to navigate and uncover hidden clues.",
     image: "treasure_hunt.jpeg",
     categories: ["Adventure", "Puzzle"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure & Rounds:
 • Starting Clue: Provided at the CSE Department.
 • Round 1: Search for Clue #2 and interpret its hidden message.
@@ -56,7 +57,7 @@ const techFestEvents = [
     description: "A high-energy competition where teams present business ideas and innovative solutions.",
     image: "pitch.webp",
     categories: ["Presentation", "Innovation"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure:
 • Registration: Submit team details, idea title, and a brief summary.
 • Pitch: Each team gets 5 minutes to present their idea.
@@ -76,7 +77,7 @@ const techFestEvents = [
     description: "A competition where teams create innovative ad campaigns on the spot.",
     image: "mad_ads.jpg",
     categories: ["Creative", "Campaign"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure:
 • Product Reveal: Teams receive a random product/service on the spot.
 • Brainstorm: 45 minutes to develop an ad campaign.
@@ -96,7 +97,7 @@ const techFestEvents = [
     description: "A poster design competition where participants create eye-catching tech posters.",
     image: "tech.jpg",
     categories: ["Design", "Creative"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure:
 • Duration: 45 minutes to hand-draw a poster on a chosen tech theme.
 • Presentation: A 2-minute pitch to explain the concept.
@@ -115,7 +116,7 @@ const techFestEvents = [
     description: "Showcase your public speaking skills in this competitive elocution contest.",
     image: "elocution.jpg",
     categories: ["Elocution", "Speech"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Details:
 • Speech Duration: 3 to 5 minutes per participant.
 • Judging: Based on content, clarity, confidence, pronunciation, and grammar.`,
@@ -132,7 +133,7 @@ const techFestEvents = [
     description: "Investigate a simulated murder mystery to uncover the real killer.",
     image: "murder.jpeg",
     categories: ["Investigation", "Puzzle"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Flow:
 • Crime Scene Investigation: Search for hidden clues.
 • Interrogation: Question suspects.
@@ -151,7 +152,7 @@ const techFestEvents = [
     description: "A team debate contest on provocative tech topics.",
     image: "Debate.jpeg",
     categories: ["Debate", "Discussion"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Event Structure & Rounds:
 • Preliminary Rounds: Teams are divided into groups for initial debates.
 • Qualifiers: Top teams advance based on performance.
@@ -171,7 +172,7 @@ const techFestEvents = [
     description: "Capture a unique photograph based on a given theme.",
     image: "photograph.jpeg",
     categories: ["Photography", "Creative"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Showcase your photography skills by capturing event moments and getting the
 most votes! The participant with the highest number of votes wins.`,
     teamSize: "Individual",
@@ -187,7 +188,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "A high-stakes challenge inspired by Squid Game, where teams compete in fast-paced games while navigating obstacles with their legs tied together. The fastest team or the one with the most points wins.",
     image: "squid_game.jpeg",
     categories: ["Adventure", "Team"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules & Event Structure:
 • Teams must complete a series of physical and strategic challenges while staying tied together.
 • Each round presents a unique obstacle testing aim, balance, coordination, and teamwork.
@@ -212,7 +213,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "A fun and competitive trivia event where teams showcase their knowledge of Netflix shows and movies through a mix of questions, visual challenges, and interactive tasks. The teams with the highest scores will win exciting prizes.",
     image: "trivia.jpeg",
     categories: ["Entertainment", "Quiz"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules & Event Structure:
 • Participants will be tested on their familiarity with Netflix content.
 • The competition will involve different formats, including Q&A and interactive elements.
@@ -234,7 +235,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "An action-packed Battlegrounds Mobile India (BGMI) tournament where teams compete in intense Classic Mode qualifiers, with the Top 5 advancing to the TDM Finals to battle for the championship.",
     image: "bgmi.jpeg",
     categories: ["Gaming", "Esports"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules & Event Structure:
 • Teams will compete in Classic Mode qualifiers, where performance is based on placement and eliminations.
 • The Top 5 teams will advance to the Finals, which will be played in TDM Mode.
@@ -260,7 +261,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "A fast-paced hackathon where teams tackle a real-world problem, develop a solution within three hours, and pitch their ideas to a panel of judges.",
     image: "hackathon.jpeg",
     categories: ["Coding", "Hackathon"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules & Event Structure:
 • Teams will receive a problem statement at the start of the event.
 • They must brainstorm, design, and prototype a solution within the given time.
@@ -284,7 +285,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "Express your thoughts, creativity, and analytical skills in the Blog Writing Competition! Participants will be given a topic on the spot and will have a set time to craft a well-structured and engaging blog.",
     image: "blog.jpeg",
     categories: ["Writing", "Creative"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules & Event Structure:
 • Duration: 3 to 10 minutes.
 • Categories: Fiction, Sci-Fi, Thriller, Animation, Social Message, Documentary, Experimental, Tech-related.
@@ -309,7 +310,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "A platform for aspiring filmmakers to showcase their storytelling skills through short films across various genres.",
     image: "short_film.jpg",
     categories: ["Creative", "Competition"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules:
 • Films must be between 3 to 10 minutes long.
 • Accepted categories: Fiction, Sci-Fi, Thriller, Animation, Social Message, Documentary, Experimental, and Tech-related.
@@ -332,7 +333,7 @@ most votes! The participant with the highest number of votes wins.`,
     description: "Get ready to play the most heated among students which makes you give your full individual potential being a team. Every game is a knockout game.",
     image: "valo.jpeg",
     categories: ["Gaming", "Esports"],
-    status: 'upcoming' as const,
+    status: 'past' as const,
     details: `Rules:
 • Full Unrated Mode Games.
 • Bring your own systems.
