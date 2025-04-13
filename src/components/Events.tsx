@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import EventCard from './events/EventCard';
@@ -13,7 +14,7 @@ interface Event {
   status: 'upcoming' | 'past';
 }
 
-// TechFest 2025 is our main event
+// TechFest 2025 is now moved to past events
 const techFest = {
   id: "techfest-2025",
   name: "Cyberis",
@@ -21,11 +22,11 @@ const techFest = {
   image: "cyberis.jpeg",
   date: "April 7-9, 2025",
   categories: ["Festival", "Competition"],
-  status: 'upcoming' as const
+  status: 'past' as const
 };
 
-// Empty array for past events (as requested)
-const pastEvents: Event[] = [];
+// Adding Cyberis to past events
+const pastEvents: Event[] = [techFest];
 
 interface EventsProps {
   showAllEvents?: boolean;
@@ -61,7 +62,7 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-red-500 mx-auto mb-4"></div>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Join our upcoming TechFest 2025 - featuring exciting competitions and workshops to enhance your technical skills!
+              Check out our past events including the Cyberis technical festival!
             </p>
           </div>
         )}
@@ -96,20 +97,18 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
           </div>
         </div>
 
-        {/* Display TechFest 2025 prominently only for upcoming or all events */}
+        {/* Display upcoming events - removed TechFest 2025 as it's now in past events */}
         {(activeFilter === 'upcoming' || activeFilter === 'all') && (
-          <div className={`mb-10 transition-all duration-700 transform ${eventSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>
-            <div className="max-w-4xl mx-auto">
-              <EventCard {...techFest} />
-            </div>
+          <div className="text-center py-16">
+            <p className="text-gray-400">No upcoming events to display yet. Stay tuned for future updates!</p>
           </div>
         )}
 
         {/* Past Events Section */}
         {(activeFilter === 'past' || activeFilter === 'all') && pastEvents.length > 0 && (
-          <div className="mt-12">
+          <div className={`mt-12 transition-all duration-700 transform ${eventSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '0.2s' }}>
             <h3 className="text-2xl font-bold text-center mb-6">Past Events</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-4xl mx-auto">
               {pastEvents.map((event, index) => (
                 <EventCard key={index} {...event} />
               ))}
@@ -117,7 +116,7 @@ const Events: React.FC<EventsProps> = ({ showAllEvents = false, isModalView = fa
           </div>
         )}
 
-        {/* Empty state for past events */}
+        {/* Empty state for past events - no longer needed as we have past events */}
         {activeFilter === 'past' && pastEvents.length === 0 && (
           <div className="text-center py-16">
             <p className="text-gray-400">No past events to display yet. Stay tuned for future updates!</p>
