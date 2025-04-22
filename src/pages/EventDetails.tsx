@@ -457,7 +457,7 @@ const EventDetails = () => {
                       <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
                       <p className="text-gray-400">
                         For more information, please contact:<br />
-                        <a href="mailto:evolvex@rnsit.ac.in" className="text-red-400 hover:underline">evolvex@rnsit.ac.in</a> or call +91 98765 43210
+                        <a href="mailto:evolvex@rnsit.ac.in" className="text-red-400 hover:underline">evolvex@rnsit.ac.in</a> or call +91 9610937743
                       </p>
                     </div>
                   </div>
